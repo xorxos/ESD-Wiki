@@ -2,9 +2,21 @@
     background-color: #222222 !important;
 }
 
+.navbar {
+    padding: 0;
+    height: 62px;
+}
+
+.navbar-border {
+    border-bottom: 1px solid #181818;
+}
+
 .navbar-brand {
     font-family: 'Gotham SSm A','Gotham SSm B','Helvetica Neue','Helvetica','Roboto','Arial','sans-serif';
+    font-size: 18px;
+    font-weight: 500;
     color: #CBCBCB !important;
+    display: inline-block;
 }
 
 .form-control {
@@ -16,4 +28,11 @@
 
 .container-fluid {
     padding: 0;
+}
+
+.navbar-title-border {
+    height: 100%;
+    padding: 13px 0px 0px 30px;
+    width: 250px;
+    border-right: 1px solid #181818;
 }

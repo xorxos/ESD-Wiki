@@ -1,0 +1,35 @@
+.navbar-primary {
+    background-color: #222222;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    top: 62px;
+    width: 250px;
+    z-index: 8;
+    border-right: 1px solid #181818;
+  }
+  
+  .navbar-primary-menu .nav-label {
+    font-family: 'Gotham SSm A','Gotham SSm B','Helvetica Neue','Helvetica','Roboto','Arial','sans-serif';
+  }
+  
+  .navbar-primary-menu,
+  .navbar-primary-menu li {
+    margin:0; padding:0;
+    list-style: none;
+  }
+  
+  .navbar-primary-menu li a {
+    display: block;
+    padding: 10px 18px;
+    text-align: left;
+    color: #CBCBCB;
+    font-weight: 500;
+  }
+  
+  .navbar-primary-menu li a:hover {
+    background-color: #2b2b2b;
+    text-decoration: none;
+    color: white;
+  }
+  
