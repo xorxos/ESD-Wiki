@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.styles.css']
 })
 export class AppComponent {
-  title = 'ipg-it-wiki';
+  title = 'ESD Wiki';
 }

@@ -1,0 +1,19 @@
+.bg-dark {
+    background-color: #222222 !important;
+}
+
+.navbar-brand {
+    font-family: 'Gotham SSm A','Gotham SSm B','Helvetica Neue','Helvetica','Roboto','Arial','sans-serif';
+    color: #CBCBCB !important;
+}
+
+.form-control {
+    border-radius: 2px;
+    background-color: #fff;
+    color: #000;
+    border-color: transparent;
+}
+
+.container-fluid {
+    padding: 0;
+}
