@@ -21,13 +21,14 @@
 }
 
 .navbar-profile-icon i{
-    font-size: 30px;
+    font-size: 28px;
+    padding-top: 3px;
 }
 
 .navbar-icon i{
-    font-size: 25px;
-    padding-inline-start:30px !important;
-    padding-top: 3px;
+    font-size: 20px;
+    padding-inline-start:20px !important;
+    padding-top: 7px;
 }
 
 .navbar-profile-text span{
