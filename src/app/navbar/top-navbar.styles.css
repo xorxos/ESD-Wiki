@@ -16,7 +16,7 @@
     background-color: white !important;
 }
 
-.container-fluid .row {
+.container-fluid{
     border-bottom: 3px solid #ebeced;
 }
 
