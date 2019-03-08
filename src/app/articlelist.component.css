@@ -1,11 +1,13 @@
+
+
 .hoverwell {
-  border: 1px solid #485563;
-  margin: 5px;
+  padding: 25px;
 }
 
 .hoverwell:hover {
   background-color: #485563;
   cursor: pointer;
+  margin: auto;
 }
 
 .article-image {
