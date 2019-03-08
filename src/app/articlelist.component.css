@@ -1,0 +1,17 @@
+.hoverwell {
+  border: 1px solid #485563;
+  margin: 5px;
+}
+
+.hoverwell:hover {
+  background-color: #485563;
+  cursor: pointer;
+}
+
+.article-image {
+  width: 96px;
+  display: block;
+  margin: auto;
+}
+
+
