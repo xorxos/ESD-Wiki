@@ -5,13 +5,12 @@
 }
 
 .hoverwell:hover {
-  background-color: #485563;
+  background-color: #ebeced;
   cursor: pointer;
-  margin: auto;
 }
 
 .article-image {
-  width: 96px;
+  width: 80px;
   display: block;
   margin: auto;
 }
