@@ -1,3 +1,11 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+        padding: 0px !important;
+    }
+  }
+
+
 .container {
     padding: 0px !important;
 }
@@ -9,7 +17,7 @@
 }
 
 .navbar-brand {
-    font-weight: 600
+    font-weight: 600;
 }
 
 .navbar {

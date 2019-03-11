@@ -1,18 +1,45 @@
+@media (min-width: 1200px) {
+  .container{
+      max-width: 1200px;
+  }
+}
 
+.welcome-section {
+  padding-top: 65px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.category-section {
+  padding-top:80px; 
+  padding-left:15px; 
+  padding-right: 15px;
+}
+
+.search-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.search-box {
+  max-width: 600px;
+  margin: auto;
+}
 
 .hoverwell {
-  padding: 25px;
+  padding-top: 20px;
+  border-radius: 5px;
+  min-height: 149px;
 }
 
 .hoverwell:hover {
-  background-color: #ebeced;
+  background-color: #e5f5ff;
   cursor: pointer;
 }
 
 .article-image {
-  width: 80px;
+  max-height: 80px;
   display: block;
   margin: auto;
 }
-
 
