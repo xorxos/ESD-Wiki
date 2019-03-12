@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
+  }
+
+  .categorytitle-section {
+    padding-top:50px; 
+    border-bottom: 2px solid #ebeced;
+  }

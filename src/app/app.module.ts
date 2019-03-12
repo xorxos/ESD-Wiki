@@ -1,21 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'
 
 import { ArticleAppComponent } from './article-app.component'
 import { TopNavBarComponent } from './navbar/top-navbar.component';
-import { ArticleListComponent } from './articlelist.component';
+import { ArticleCategoriesComponent } from './articles/articlecategories.component';
+import { CategoryListComponent } from './articles/category-details/category-articlelist.component'
+import { CategoryService } from './articles/shared/category.service'
+import { appRoutes } from './routes'
 
 
 @NgModule({
   declarations: [
     ArticleAppComponent,
     TopNavBarComponent,
-    ArticleListComponent
+    ArticleCategoriesComponent,
+    CategoryListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ 
+    CategoryService
+  ],
   bootstrap: [ArticleAppComponent]
 })
 export class AppModule { }

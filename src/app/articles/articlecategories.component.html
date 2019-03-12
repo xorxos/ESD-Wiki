@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row category-section">
-        <div *ngFor="let category of categories" class="col-6 col-lg-2 col-md-3 col-sm-4 well hoverwell">
+        <div *ngFor="let category of categories" [routerLink]="['/browse', category.categoryUrl]" class="col-6 col-lg-2 col-md-3 col-sm-4 well hoverwell">
             <img class="article-image" [src]="category?.imageUrl">
             <div style="text-align:center;">{{category.name}}</div>
         </div>
