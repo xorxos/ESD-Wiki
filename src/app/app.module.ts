@@ -7,6 +7,7 @@ import { TopNavBarComponent } from './navbar/top-navbar.component';
 import { ArticleCategoriesComponent } from './articles/articlecategories.component';
 import { CategoryListComponent } from './articles/category-details/category-articlelist.component'
 import { CategoryService } from './articles/shared/category.service'
+import { ArticleService } from './articles/shared/article.service'
 import { appRoutes } from './routes'
 
 
@@ -22,7 +23,8 @@ import { appRoutes } from './routes'
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ 
-    CategoryService
+    CategoryService,
+    ArticleService
   ],
   bootstrap: [ArticleAppComponent]
 })
