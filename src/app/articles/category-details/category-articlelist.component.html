@@ -1,8 +1,18 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-8 col-md-12 col-sm-12">
             <div class="categorytitle-section">
                 <h4>{{category.name}}</h4>
+            </div>
+            <div class="articles-list hoverwell" *ngFor="let article of articles">
+                <div class="article-container">
+                    <div class="article-title">{{article.title}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="categorytitle-section">
+                <h5>Can't find what you're looking for?</h5>
             </div>
         </div>
     </div>
