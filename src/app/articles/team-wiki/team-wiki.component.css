@@ -1,0 +1,30 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
+  }
+
+.col-lg-3 {
+    display: inline-block;
+    padding-bottom: 80px;
+  }
+
+.col-lg-9 {
+    display: inline-block;
+}
+
+h5 {
+    color: #333d47;
+}
+
+.col-lg-3 a {
+    color: #7e828b;
+}
+
+.test1 {
+    padding-bottom:5px;
+}
+
+.category-title {
+    padding-top: 30px;
+}

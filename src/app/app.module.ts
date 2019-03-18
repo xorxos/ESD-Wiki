@@ -9,6 +9,7 @@ import { CategoryListComponent } from './articles/category-details/category-arti
 import { CategoryService } from './articles/shared/category.service'
 import { ArticleService } from './articles/shared/article.service'
 import { appRoutes } from './routes'
+import { TeamWikiComponent } from './articles/team-wiki/team-wiki.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { appRoutes } from './routes'
     ArticleAppComponent,
     TopNavBarComponent,
     ArticleCategoriesComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    TeamWikiComponent
   ],
   imports: [
     BrowserModule,

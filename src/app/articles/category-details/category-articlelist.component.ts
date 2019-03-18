@@ -11,6 +11,7 @@ import { ArticleService } from '../shared/article.service'
 })
 export class CategoryListComponent implements OnInit {
     category:ICategory
+    selectedFilter:string
     articles
 
     constructor(private CategoryService:CategoryService, private route:ActivatedRoute, private ArticleService:ArticleService) {
@@ -20,5 +21,6 @@ export class CategoryListComponent implements OnInit {
     ngOnInit() {
         this.category = this.CategoryService.getCategory(String(this.route.snapshot.params['name']))
         this.articles = this.ArticleService.getArticleByCategory("Skype")
+        this.selectedFilter = "All"
     }
 }

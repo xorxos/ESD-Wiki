@@ -2,8 +2,21 @@
     <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12">
             <div class="categorytitle-section">
-                <h4>{{category.name}}</h4>
+                <h4 style="display: inline-block;">{{category.name}}</h4>
+                <div class="dropleft" style="float:right;">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        All
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">All</a>
+                        <a class="dropdown-item" href="#">Mobile</a>
+                        <a class="dropdown-item" href="#">Windows</a>
+                        <a class="dropdown-item" href="#">Mac</a>
+                    </div>
+                </div>
             </div>
+
             <div class="articles-list hoverwell" *ngFor="let article of articles">
                 <div class="article-container">
                     <div class="article-title">{{article.title}}</div>
@@ -11,8 +24,8 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="categorytitle-section">
-                <h5>Can't find what you're looking for?</h5>
+            <div class="contact-section">
+                <div class="contact-title">Can't find what you're looking for?</div>
             </div>
         </div>
     </div>
