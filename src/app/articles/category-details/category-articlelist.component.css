@@ -17,11 +17,11 @@
 
   .hoverwell {
     background-color: #fff;
-    border: 3px solid #ebeced;
+    border: 3px solid #DAE0E6;
   }
   
   .hoverwell:hover {
-    background-color: #ebeced;
+    background-color: #DAE0E6;
     cursor: pointer;
   }
 
@@ -38,7 +38,7 @@
   .contact-section {
     margin-top: 80px;
     margin-bottom: 10px;
-    background-color: #ebeced;
+    background-color: #DAE0E6;
     height: 350px;
   }
 
