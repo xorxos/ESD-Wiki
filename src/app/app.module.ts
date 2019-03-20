@@ -10,6 +10,7 @@ import { CategoryService } from './articles/shared/category.service'
 import { ArticleService } from './articles/shared/article.service'
 import { appRoutes } from './routes'
 import { TeamWikiComponent } from './articles/team-wiki/team-wiki.component';
+import { CreateArticleComponent } from './articles/team-wiki/create-article/create-article.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TeamWikiComponent } from './articles/team-wiki/team-wiki.component';
     TopNavBarComponent,
     ArticleCategoriesComponent,
     CategoryListComponent,
-    TeamWikiComponent
+    TeamWikiComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,

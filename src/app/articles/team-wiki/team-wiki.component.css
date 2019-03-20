@@ -28,3 +28,13 @@ h5 {
 .category-title {
     padding-top: 30px;
 }
+
+.create-article-button {
+    padding-left: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.category-text {
+    display: inline-block;
+}

@@ -6,5 +6,13 @@ import { Component } from '@angular/core'
     styleUrls: ['./team-wiki.component.css']
 })
 export class TeamWikiComponent {
-    
+    HideCreateArticleButton:boolean = true;
+
+    mouseEntered() {
+        this.HideCreateArticleButton = false;
+    }
+
+    mouseLeft() {
+        this.HideCreateArticleButton = true;
+    }
 }
