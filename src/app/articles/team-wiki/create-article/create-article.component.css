@@ -5,7 +5,7 @@
   }
 
 .col-lg-3 {
-    background-color:#f9fafb; 
+    background-color:#ebeced; 
     min-height: 100vh;
     padding: 0px;
 }
@@ -32,10 +32,9 @@
     cursor: pointer;
     background-color: white;
     padding: 12px 20px;
-    border-top: 1px solid #dfe3e8;
-    border-right: 1px solid #dfe3e8;
-    border-left: 1px solid #dfe3e8;
-    border-bottom: 1px solid #dfe3e8;
+    border-top: 2px solid #dfe3e8;
+    border-right: 2px solid #dfe3e8;
+    border-left: 2px solid #dfe3e8;
 }
 
 .add-configuration-object {
@@ -44,9 +43,10 @@
     background-color: white;
     padding-top: 12px;
     font-weight: 600;
-    border-right: 1px solid #dfe3e8;
-    border-left: 1px solid #dfe3e8;
-    border-bottom: 1px solid #dfe3e8;
+    border-top: 2px solid #dfe3e8;
+    border-right: 2px solid #dfe3e8;
+    border-left: 2px solid #dfe3e8;
+    border-bottom: 2px solid #dfe3e8;
 }
 
 .block {

@@ -1,19 +1,20 @@
 <div class="container">
-    <div class="row" style="padding-top:50px; padding-bottom:20px; border-bottom: 3px solid #DAE0E6;">
-        <div class="input-group search-box center">
-            <input class="form-control border-secondary" type="search" placeholder="Search team wiki...">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </div>
     <div class="row" style="padding-top:20px;">
-        <div class="col-lg-3">
+        <div class="col-lg-3" style="border-right: 3px solid #dfe3e8;">
+            <div class="input-group search-box center" style="padding-top:25px;">
+                <input class="form-control border-secondary" type="search" placeholder="Search team wiki...">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
             <div class="test1 category-title" (mouseenter)="mouseEntered()" (mouseleave)="mouseLeft()">
-                <div class="category-text"><h5><strong>Active Directory</strong></h5></div>
-                <div class="create-article-button" *ngIf="!HideCreateArticleButton" routerLink="/team-wiki/create"><i class="fa fa-plus-square"></i></div>
+                <div class="category-text">
+                    <h5><strong>Active Directory</strong></h5>
+                </div>
+                <div class="create-article-button" *ngIf="!HideCreateArticleButton" routerLink="/team-wiki/create"><i
+                        class="fa fa-plus-square"></i></div>
             </div>
             <div class="test1"><a href="team-wiki">How to create an employee account</a></div>
             <div class="test1"><a href="team-wiki">How to create an offnet account</a></div>
