@@ -4,10 +4,15 @@
     }
   }
 
+.container {
+    font-family: "Segoe UI";
+}
+
 .col-lg-3 {
     background-color:#ebeced; 
-    min-height: 100vh;
+    min-height: 93vh;
     padding: 0px;
+    position: relative;
 }
 
 .col-lg-9 {
@@ -15,7 +20,7 @@
     padding-top: 40px;
 }
 
-.configuration-item {
+.inline-block {
     display: inline-block;
 }
 
@@ -49,6 +54,56 @@
     border-bottom: 2px solid #dfe3e8;
 }
 
+.add-item-section {
+    padding-top: 0px;
+}
+
+.title-element {
+    height: 50px;
+    padding: 12px 20px;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.box-shadow-container {
+    -webkit-box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+}
+
+.header-container {
+    height: 60px;
+    background-color:white;
+    text-align: center;
+}
+
+.header-element {
+    padding-top: 14px;
+    padding-left: 30px;
+    font-weight: 600 !important;
+    line-height: 2rem;
+}
+
+.add-item-element {
+    height: 50px;
+    cursor: pointer;
+    padding: 10px 20px;
+    line-height: 1.5rem;
+    background-color: white;
+    border-bottom: 2px solid #dfe3e8;
+}
+
+.add-item-element:hover {
+    border-right: 4px solid lightskyblue;
+}
+
 .block {
     display: block;
+}
+
+.x-icon {
+    float: right;
+    line-height: 2rem;
+    font-weight: 100;
+    padding: 14px 20px 14px 0px;
+    cursor: pointer;
 }

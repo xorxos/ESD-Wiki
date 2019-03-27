@@ -1,39 +1,50 @@
+import { Title } from '@angular/platform-browser';
+
+
 export interface IArticle {
     id: number
     title: string
     description: string
-    articleContents: []
+    articleContents: object[]
     categoryTags: string[]
 }
 
-export interface TitleSection {
+export interface ITitleSection {
+    selector: string,
     contents: string
 }
 
-export interface RichTextSection {
+export interface IRichTextSection {
+    selector: string,
     contents: string
 }
 
-export interface BulletedListSection {
+export interface IBulletedListSection {
+    selector: string,
     contents: string
 }
 
-export interface NumberedListSection {
+export interface INumberedListSection {
+    selector: string,
     contents: string
 }
 
-export interface StepDividerSection {
+export interface IStepDividerSection {
+    selector: string,
     contents: string
 }
 
-export interface ImageLeftSection {
+export interface IImageLeftSection {
+    selector: string,
     contents: string
 }
 
-export interface ImageRightSection {
+export interface IImageRightSection {
+    selector: string,
     contents: string
 }
 
-export interface FullWidthImageSection {
+export interface IFullWidthImageSection {
+    selector: string,
     contents: string
 }
