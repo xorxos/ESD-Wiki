@@ -35,6 +35,7 @@ export class CreateArticleComponent implements OnInit {
         this.showConfiguration = true
         this.showSettings = false
         this.showAddSection = false
+        this.showTitleSettings = false
         this.titleSection = {
             selector: "Title",
             contents: "How to Create an Employee Account in PM"
@@ -66,21 +67,14 @@ export class CreateArticleComponent implements OnInit {
     }
 
     toggleTitleSettings() {
-        if(this.showTitleSettings == false){
-            this.showTitleSettings = true
-        }else this.showTitleSettings = false
+        this.setMenuBooleansFalse()
+        this.showTitleSettings = true
     }
 
     toggleRichTextSettings() {
-        if(this.showRichTextSettings == false){
-            this.showRichTextSettings = true
-        }else this.showRichTextSettings = false
     }
 
     toggleStepDividerSettings() {
-        if(this.showStepDividerSettings == false){
-            this.showStepDividerSettings = true
-        }else this.showStepDividerSettings = false
     }
 
     /** Re-usable function for toggling boolean values */
@@ -91,6 +85,15 @@ export class CreateArticleComponent implements OnInit {
         this.showTitleSettings = false
         this.showRichTextSettings = false
         this.showStepDividerSettings = false
+    }
+
+    /** Title Setting Functions */
+    textAreaValueChange(event) {
+        try {
+            this.newArticle.articleContents[0].contents = event.target.value
+        } catch(e) {
+            console.log('could not set text-area value')
+        }
     }
 
     /** Functions to check which component is in newArticle.articleContents */

@@ -27,6 +27,10 @@ hr {
     display: inline-block;
 }
 
+.form-group {
+    margin-bottom: 0px !important;
+}
+
 .configuration-order {
     float: right;
 }
@@ -97,6 +101,21 @@ hr {
 
 .add-item-element:hover {
     border-right: 4px solid lightskyblue;
+}
+
+.title-settings-header {
+    padding-top: 14px;
+    padding-left: 30px;
+    font-weight: 600 !important;
+    line-height: 2rem;
+}
+
+.setting-element {
+    min-height: 50px;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 1.5rem;
+    background-color: white;
 }
 
 .block {

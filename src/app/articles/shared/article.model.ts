@@ -5,7 +5,7 @@ export interface IArticle {
     id: number
     title: string
     description: string
-    articleContents: object[]
+    articleContents: any[]
     categoryTags: string[]
 }
 
