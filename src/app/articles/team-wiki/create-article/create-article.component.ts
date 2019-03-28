@@ -148,7 +148,7 @@ export class CreateArticleComponent implements OnInit {
     addRichTextComponent() {
         this.richTextSection = {
             selector: "RichText",
-            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD needs to create the account."
+            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD requires to create the account."
         }
         this.newArticle.articleContents.push(this.richTextSection)
         this.toggleConfigurationSection()
