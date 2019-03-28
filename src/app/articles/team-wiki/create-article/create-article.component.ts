@@ -17,6 +17,10 @@ export class CreateArticleComponent implements OnInit {
     showConfiguration: boolean
     showSettings: boolean
     showAddSection: boolean
+    showTitleSettings: boolean
+    showRichTextSettings: boolean
+    showStepDividerSettings: boolean
+
     newArticle: IArticle
     titleSection: ITitleSection
     richTextSection: IRichTextSection
@@ -44,24 +48,49 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    /** Functions to handle which menu is being shown */
+    /** Functions to handle which menu/component is being shown */
 
     toggleAddSection() {
+        this.setMenuBooleansFalse()
         this.showAddSection = true
-        this.showSettings = false
-        this.showConfiguration = false
     }
 
     toggleSettings() {
-        this.showAddSection = false
+        this.setMenuBooleansFalse()
         this.showSettings = true
-        this.showConfiguration = false
     }
 
     toggleConfigurationSection() {
-        this.showAddSection = false
-        this.showSettings = false
+        this.setMenuBooleansFalse()
         this.showConfiguration = true
+    }
+
+    toggleTitleSettings() {
+        if(this.showTitleSettings == false){
+            this.showTitleSettings = true
+        }else this.showTitleSettings = false
+    }
+
+    toggleRichTextSettings() {
+        if(this.showRichTextSettings == false){
+            this.showRichTextSettings = true
+        }else this.showRichTextSettings = false
+    }
+
+    toggleStepDividerSettings() {
+        if(this.showStepDividerSettings == false){
+            this.showStepDividerSettings = true
+        }else this.showStepDividerSettings = false
+    }
+
+    /** Re-usable function for toggling boolean values */
+    setMenuBooleansFalse() {
+        this.showSettings = false
+        this.showAddSection = false
+        this.showConfiguration = false
+        this.showTitleSettings = false
+        this.showRichTextSettings = false
+        this.showStepDividerSettings = false
     }
 
     /** Functions to check which component is in newArticle.articleContents */

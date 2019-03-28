@@ -12,12 +12,12 @@
 
   .articles-list {
     margin-top: 5px;
-    padding: 15px;
+    padding: 10px 15px;
   }
 
   .hoverwell {
     background-color: #fff;
-    border: 3px solid #A9A9A9;
+    border: 3px solid #5f758c;
   }
   
   .hoverwell:hover {

@@ -7,13 +7,15 @@
                         <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                         </div>
                     </div>
-                    <div *ngIf="isRichTextComponent(component)" class="configuration-object">
+                    <div *ngIf="isRichTextComponent(component)" class="configuration-object" (click)="toggleRichTextSettings()">
                         <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                         </div>
-                        <div class="configuration-order">
+                        <div *ngIf="!showRichTextSettings" class="configuration-order">
                             <i class="fa fa-sort-up block"></i>
                             <i class="fa fa-sort-down block"></i>
                         </div>
+                        <div *ngIf="showRichTextSettings" style="border-bottom: 2px solid #DAE0E6; padding-bottom:5px;"></div>
+                        <div *ngIf="showRichTextSettings" style="padding-top:15px;">Settings</div>
                     </div>
                     <div *ngIf="isStepDividerComponent(component)" class="configuration-object">
                         <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
@@ -101,7 +103,7 @@
                 <h3 *ngIf="isTitleComponent(component)">{{component.contents}}</h3>
                 <div *ngIf="isStepDividerComponent(component)">
                     <h4>{{component.contents}}</h4>
-                    <hr>
+                    <div style="border-bottom: 2px solid #DAE0E6; margin-bottom:10px;"></div>
                 </div>
                 <div *ngIf="isRichTextComponent(component)">{{component.contents}}</div>
             </div>

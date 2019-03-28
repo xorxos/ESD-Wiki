@@ -8,11 +8,14 @@
     font-family: "Segoe UI";
 }
 
+hr {
+    margin: 5px 0px 16px 0px;
+}
+
 .col-lg-3 {
     background-color:#ebeced; 
     min-height: 93vh;
     padding: 0px;
-    position: relative;
 }
 
 .col-lg-9 {
@@ -33,7 +36,7 @@
 }
 
 .configuration-object {
-    height: 60px;
+    min-height: 60px;
     cursor: pointer;
     background-color: white;
     padding: 12px 20px;
@@ -59,7 +62,7 @@
 }
 
 .title-element {
-    height: 50px;
+    min-height: 50px;
     padding: 12px 20px;
     font-weight: 500;
     line-height: 1.5rem;
@@ -71,7 +74,7 @@
 }
 
 .header-container {
-    height: 60px;
+    min-height: 60px;
     background-color:white;
     text-align: center;
 }
