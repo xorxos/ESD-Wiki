@@ -37,7 +37,7 @@ export class CreateArticleComponent implements OnInit {
         this.showAddSection = false
         this.titleSection = {
             selector: "Title",
-            contents: "Title"
+            contents: "How to Create an Employee Account in PM"
         }
         this.newArticle = {
             id: 20,
@@ -148,7 +148,7 @@ export class CreateArticleComponent implements OnInit {
     addRichTextComponent() {
         this.richTextSection = {
             selector: "RichText",
-            contents: "This is some rich text"
+            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD needs to create the account."
         }
         this.newArticle.articleContents.push(this.richTextSection)
         this.toggleConfigurationSection()

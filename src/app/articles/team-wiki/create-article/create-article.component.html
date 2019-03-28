@@ -101,8 +101,8 @@
         <div class="col-lg-9">
             <div *ngFor="let component of newArticle.articleContents">
                 <h3 *ngIf="isTitleComponent(component)">{{component.contents}}</h3>
-                <div *ngIf="isStepDividerComponent(component)">
-                    <h4>{{component.contents}}</h4>
+                <div *ngIf="isStepDividerComponent(component)" style="margin-top: 10px;">
+                    <div style="font-size:20px; margin-bottom:5px;">{{component.contents}}</div>
                     <div style="border-bottom: 2px solid #DAE0E6; margin-bottom:10px;"></div>
                 </div>
                 <div *ngIf="isRichTextComponent(component)">{{component.contents}}</div>
