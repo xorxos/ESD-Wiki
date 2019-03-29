@@ -1,0 +1,21 @@
+<div class="add-item-section">
+    <div class="header-container box-shadow-container">
+        <div class="header-element inline-block">Add Section</div>
+        <i class="fa fa-times x-icon" (click)="closeAddItemMenu()"></i>
+    </div>
+    <div class="box-shadow-container">
+        <div class="title-element">Text</div>
+        <div class="add-item-element" style="border-top: 2px solid #dfe3e8;" (click)="addItem('RichText')">RichText
+        </div>
+        <div class="add-item-element" (click)="addItem('Step Divider')">Step Divider</div>
+        <div class="add-item-element" (click)="addItem('Bulleted List')">Bulleted List</div>
+        <div class="add-item-element" (click)="addItem('Numbered List')">Numbered List</div>
+    </div>
+    <div class="box-shadow-container">
+        <div class="title-element">Images</div>
+        <div class="add-item-element" style="border-top: 2px solid #dfe3e8;" (click)="addItem('FullWidth Image')">
+            Full-width Image</div>
+        <div class="add-item-element" (click)="addItem('Image Left')">Image-left with text</div>
+        <div class="add-item-element" (click)="addItem('Image Right')">Image-right with text</div>
+    </div>
+</div>

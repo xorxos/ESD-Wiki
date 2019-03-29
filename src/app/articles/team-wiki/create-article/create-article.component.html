@@ -1,120 +1,21 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-3" *ngIf="showConfiguration">
-            <div class="configuration-section-1">
-                <div *ngFor="let component of newArticle.articleContents;let i = index">
-                    <div *ngIf="isTitleComponent(component)" class="configuration-object"
-                        (click)="toggleTitleSettings()">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                    </div>
-                    <div *ngIf="isRichTextComponent(component)" class="configuration-object"
-                        (click)="toggleRichTextSettings()">
-                        <div class="inline-block" style="line-height: 2rem;">
-                            {{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isStepDividerComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isBulletedListComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isNumberedListComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isImageLeftComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isImageRightComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                    <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object">
-                        <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
-                        </div>
-                        <div class="configuration-order">
-                            <i class="fa fa-sort-up block"></i>
-                            <i class="fa fa-sort-down block"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="add-configuration-object" style="text-align:center" (click)="toggleAddSection()">
-                    <div class="inline-block" style="line-height: 2rem;">Add Section</div>
-                </div>
-            </div>
+        <div class="col-lg-3" *ngIf="showArticleContents">
+            <article-contents-menu [newArticle]="newArticle" 
+                                   (openAddItemMenu)="toggleShowAddItemMenu($event)"
+                                   (openTitleSettings)="toggleTitleSettings($event)"></article-contents-menu>
         </div>
-        <div class="col-lg-3" *ngIf="showSettings">
-            <div class="configuration-section-1">
-                Settings
-            </div>
+        <div class="col-lg-3" *ngIf="showArticleSettings">
+            <article-settings-menu></article-settings-menu>
         </div>
-        <div class="col-lg-3" *ngIf="showAddSection">
-            <div class="add-item-section">
-                <div class="header-container box-shadow-container">
-                    <div class="header-element inline-block">Add Section</div>
-                    <i class="fa fa-times x-icon" (click)="toggleConfigurationSection()"></i>
-                </div>
-                <div class="box-shadow-container">
-                    <div class="title-element">Text</div>
-                    <div class="add-item-element" style="border-top: 2px solid #dfe3e8;"
-                        (click)="addRichTextComponent()">RichText</div>
-                    <div class="add-item-element" (click)="addStepDividerComponent()">Step Divider</div>
-                    <div class="add-item-element" (click)="addBulletedListComponent()">Bulleted List</div>
-                    <div class="add-item-element" (click)="addNumberedListComponent()">Numbered List</div>
-                </div>
-                <div class="box-shadow-container">
-                    <div class="title-element">Images</div>
-                    <div class="add-item-element" style="border-top: 2px solid #dfe3e8;"
-                        (click)="addFullWidthImageComponent()">Full-width Image</div>
-                    <div class="add-item-element" (click)="addImageLeftComponent()">Image-left with text</div>
-                    <div class="add-item-element" (click)="addImageRightComponent()">Image-right with text</div>
-                </div>
-            </div>
+        <div class="col-lg-3" *ngIf="showAddItemMenu">
+            <add-item-menu (addArticleItem)="addArticleItem($event)"
+                           (closeMenu)="toggleConfigurationSection($event)"></add-item-menu>
         </div>
         <div class="col-lg-3" *ngIf="showTitleSettings">
-            <div class="title-settings-container box-shadow-container">
-                <div class="header-container box-shadow-container">
-                    <div class="title-settings-header inline-block">Title Settings</div>
-                    <i class="fa fa-times x-icon" (click)="toggleConfigurationSection()"></i>
-                </div>
-                <div class="box-shadow-container" style="border-top: 2px solid #dfe3e8;">
-                    <form class="setting-element" style="padding: 10px;">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="2" (input)="textAreaValueChange($event)">{{newArticle.articleContents[0].contents}}</textarea>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <title-settings-menu [newArticle]="newArticle" 
+                                 (updateTitleContentMessage)="updateTitleContent($event)"
+                                 (closeTitleSettingsMenuMessage)="toggleConfigurationSection($event)"></title-settings-menu>
         </div>
         <div class="col-lg-9">
             <div *ngFor="let component of newArticle.articleContents">

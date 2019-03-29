@@ -14,9 +14,9 @@ import { IArticle,
     styleUrls: ['create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-    showConfiguration: boolean
-    showSettings: boolean
-    showAddSection: boolean
+    showArticleContents: boolean
+    showArticleSettings: boolean
+    showAddItemMenu: boolean
     showTitleSettings: boolean
     showRichTextSettings: boolean
     showStepDividerSettings: boolean
@@ -32,9 +32,9 @@ export class CreateArticleComponent implements OnInit {
     numberedListSection: INumberedListSection
 
     ngOnInit() {
-        this.showConfiguration = true
-        this.showSettings = false
-        this.showAddSection = false
+        this.showArticleContents = true
+        this.showArticleSettings = false
+        this.showAddItemMenu = false
         this.showTitleSettings = false
         this.titleSection = {
             selector: "Title",
@@ -51,19 +51,19 @@ export class CreateArticleComponent implements OnInit {
 
     /** Functions to handle which menu/component is being shown */
 
-    toggleAddSection() {
+    toggleShowAddItemMenu(event) {
         this.setMenuBooleansFalse()
-        this.showAddSection = true
+        this.showAddItemMenu = event
     }
 
     toggleSettings() {
         this.setMenuBooleansFalse()
-        this.showSettings = true
+        this.showArticleSettings = true
     }
 
-    toggleConfigurationSection() {
+    toggleConfigurationSection(event) {
         this.setMenuBooleansFalse()
-        this.showConfiguration = true
+        this.showArticleContents = event
     }
 
     toggleTitleSettings() {
@@ -79,16 +79,15 @@ export class CreateArticleComponent implements OnInit {
 
     /** Re-usable function for toggling boolean values */
     setMenuBooleansFalse() {
-        this.showSettings = false
-        this.showAddSection = false
-        this.showConfiguration = false
+        this.showArticleSettings = false
+        this.showAddItemMenu = false
+        this.showArticleContents = false
         this.showTitleSettings = false
         this.showRichTextSettings = false
         this.showStepDividerSettings = false
     }
 
-    /** Title Setting Functions */
-    textAreaValueChange(event) {
+    updateTitleContent(event) {
         try {
             this.newArticle.articleContents[0].contents = event.target.value
         } catch(e) {
@@ -96,8 +95,83 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    /** Functions to check which component is in newArticle.articleContents */
+    /** Functions to add components */
+    addArticleItem(event) {
+        if(event === "RichText"){
+            this.addRichTextComponent()
+        }else if (event === "Step Divider") {
+            this.addStepDividerComponent()
+        }else if (event === "Bulleted List") {
+            this.addBulletedListComponent()
+        }else if (event === "Numbered List") {
+            this.addNumberedListComponent()
+        }else if (event === "FullWidth Image") {
+            this.addFullWidthImageComponent()
+        }else if (event === "Image Left") {
+            this.addImageLeftComponent()
+        }else if (event === "Image Right") {
+            this.addImageRightComponent()
+        }
+        this.toggleConfigurationSection(true)
+    }
 
+    addRichTextComponent() {
+        this.richTextSection = {
+            selector: "RichText",
+            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD requires to create the account."
+        }
+        this.newArticle.articleContents.push(this.richTextSection)
+    }
+
+    addStepDividerComponent() {
+        this.stepDividerSection = {
+            selector: "Step Divider",
+            contents: "Step 1"
+        }
+        this.newArticle.articleContents.push(this.stepDividerSection)
+    }
+
+    addBulletedListComponent() {
+        this.bulletedListSection = {
+            selector: "Bulleted List",
+            contents: "Step 1"
+        }
+        this.newArticle.articleContents.push(this.bulletedListSection)
+    }
+
+    addNumberedListComponent() {
+        this.numberedListSection = {
+            selector: "Numbered List",
+            contents: "Step 1"
+        }
+        this.newArticle.articleContents.push(this.numberedListSection)
+    }
+
+    addImageLeftComponent() {
+        this.imageLeftSection = {
+            selector: "Image-left With Text",
+            contents: "This is some rich text"
+        }
+        this.newArticle.articleContents.push(this.imageLeftSection)
+    }
+
+    addImageRightComponent() {
+        this.imageRightSection = {
+            selector: "Image-right With Text",
+            contents: "This is some rich text"
+        }
+        this.newArticle.articleContents.push(this.imageRightSection)
+    }
+
+    addFullWidthImageComponent() {
+        this.fullWidthImageSection = {
+            selector: "Full-Width Image",
+            contents: "This is some rich text"
+        }
+        this.newArticle.articleContents.push(this.fullWidthImageSection)
+    }
+
+    /** Functions to check which component is in newArticle.articleContents */
     isTitleComponent(component): boolean {
         if(component.selector === "Title") {
             return true
@@ -144,70 +218,5 @@ export class CreateArticleComponent implements OnInit {
         if(component.selector === "Full-Width Image") {
             return true
         } else return false
-    }
-
-    /** Functions to add components */
-
-    addRichTextComponent() {
-        this.richTextSection = {
-            selector: "RichText",
-            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD requires to create the account."
-        }
-        this.newArticle.articleContents.push(this.richTextSection)
-        this.toggleConfigurationSection()
-    }
-
-    addStepDividerComponent() {
-        this.stepDividerSection = {
-            selector: "Step Divider",
-            contents: "Step 1"
-        }
-        this.newArticle.articleContents.push(this.stepDividerSection)
-        this.toggleConfigurationSection()
-    }
-
-    addBulletedListComponent() {
-        this.bulletedListSection = {
-            selector: "Bulleted List",
-            contents: "Step 1"
-        }
-        this.newArticle.articleContents.push(this.bulletedListSection)
-        this.toggleConfigurationSection()
-    }
-
-    addNumberedListComponent() {
-        this.numberedListSection = {
-            selector: "Numbered List",
-            contents: "Step 1"
-        }
-        this.newArticle.articleContents.push(this.numberedListSection)
-        this.toggleConfigurationSection()
-    }
-
-    addImageLeftComponent() {
-        this.imageLeftSection = {
-            selector: "Image-left With Text",
-            contents: "This is some rich text"
-        }
-        this.newArticle.articleContents.push(this.imageLeftSection)
-        this.toggleConfigurationSection()
-    }
-
-    addImageRightComponent() {
-        this.imageRightSection = {
-            selector: "Image-right With Text",
-            contents: "This is some rich text"
-        }
-        this.newArticle.articleContents.push(this.imageRightSection)
-        this.toggleConfigurationSection()
-    }
-
-    addFullWidthImageComponent() {
-        this.fullWidthImageSection = {
-            selector: "Full-Width Image",
-            contents: "This is some rich text"
-        }
-        this.newArticle.articleContents.push(this.fullWidthImageSection)
-        this.toggleConfigurationSection()
     }
 }

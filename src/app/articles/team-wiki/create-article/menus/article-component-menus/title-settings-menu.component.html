@@ -1,0 +1,14 @@
+<div class="box-shadow-container">
+    <div class="header-container">
+        <div class="title-settings-header inline-block">Title Settings</div>
+        <i class="fa fa-times x-icon" (click)="closeTitleSettingsMenu()"></i>
+    </div>
+    <div style="border-top: 1px solid #dfe3e8;">
+        <form class="setting-element" style="padding: 10px;">
+            <div class="form-group">
+                <textarea class="form-control" rows="2"
+                    (input)="updateTitleContent($event)">{{newArticle.articleContents[0].contents}}</textarea>
+            </div>
+        </form>
+    </div>
+</div>

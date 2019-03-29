@@ -11,6 +11,10 @@ import { ArticleService } from './articles/shared/article.service'
 import { appRoutes } from './routes'
 import { TeamWikiComponent } from './articles/team-wiki/team-wiki.component';
 import { CreateArticleComponent } from './articles/team-wiki/create-article/create-article.component';
+import { AddItemMenuComponent } from './articles/team-wiki/create-article/menus/add-item-menu.component';
+import { TitleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/title-settings-menu.component';
+import { ArticleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-settings-menu.component';
+import { ArticleContentsMenuComponent } from './articles/team-wiki/create-article/menus/article-contents-menu.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { CreateArticleComponent } from './articles/team-wiki/create-article/crea
     ArticleCategoriesComponent,
     CategoryListComponent,
     TeamWikiComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    AddItemMenuComponent,
+    TitleSettingsMenuComponent,
+    ArticleSettingsMenuComponent,
+    ArticleContentsMenuComponent
   ],
   imports: [
     BrowserModule,
