@@ -15,7 +15,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isStepDividerComponent(component)" class="configuration-object">
+            <div *ngIf="isSubheaderComponent(component)" class="configuration-object"
+                 (click)="toggleSubheaderSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">

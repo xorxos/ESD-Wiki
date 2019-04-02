@@ -18,5 +18,4 @@ export class TitleSettingsMenuComponent {
     updateTitleContent(event:Input) {
         this.updateTitleContentMessage.emit(event)
     }
-
 }

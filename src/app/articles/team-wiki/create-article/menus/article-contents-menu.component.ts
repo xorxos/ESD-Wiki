@@ -11,6 +11,7 @@ export class ArticleContentsMenuComponent {
     @Input() newArticle: IArticle
     @Output() openAddItemMenu = new EventEmitter<boolean>();
     @Output() openTitleSettings = new EventEmitter<boolean>();
+    @Output() openSubheaderSettings = new EventEmitter<number>();
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
@@ -18,6 +19,10 @@ export class ArticleContentsMenuComponent {
 
     toggleTitleSettings() {
         this.openTitleSettings.emit(true)
+    }
+
+    toggleSubheaderSettings(i) {
+        this.openSubheaderSettings.emit(i)
     }
 
 
@@ -34,8 +39,8 @@ export class ArticleContentsMenuComponent {
         } else return false
     }
 
-    isStepDividerComponent(component): boolean {
-        if(component.selector === "Step Divider") {
+    isSubheaderComponent(component): boolean {
+        if(component.selector === "Subheader") {
             return true
         } else return false
     }

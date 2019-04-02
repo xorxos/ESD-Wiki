@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { IArticle, 
          ITitleSection, 
          IRichTextSection, 
-         IStepDividerSection, 
+         ISubheaderSection, 
          IImageLeftSection, 
          IImageRightSection, 
          IFullWidthImageSection, 
@@ -19,12 +19,14 @@ export class CreateArticleComponent implements OnInit {
     showAddItemMenu: boolean
     showTitleSettings: boolean
     showRichTextSettings: boolean
-    showStepDividerSettings: boolean
+    showSubheaderSettings: boolean
+
+    subheaderIndex:number
 
     newArticle: IArticle
     titleSection: ITitleSection
     richTextSection: IRichTextSection
-    stepDividerSection: IStepDividerSection
+    subheaderSection: ISubheaderSection
     imageLeftSection: IImageLeftSection
     imageRightSection: IImageRightSection
     fullWidthImageSection: IFullWidthImageSection
@@ -36,6 +38,7 @@ export class CreateArticleComponent implements OnInit {
         this.showArticleSettings = false
         this.showAddItemMenu = false
         this.showTitleSettings = false
+        this.showSubheaderSettings = false
         this.titleSection = {
             selector: "Title",
             contents: "How to Create an Employee Account in PM"
@@ -74,7 +77,10 @@ export class CreateArticleComponent implements OnInit {
     toggleRichTextSettings() {
     }
 
-    toggleStepDividerSettings() {
+    toggleSubheaderSettings(event) {
+        this.setMenuBooleansFalse()
+        this.subheaderIndex = event
+        this.showSubheaderSettings = true
     }
 
     /** Re-usable function for toggling boolean values */
@@ -84,12 +90,21 @@ export class CreateArticleComponent implements OnInit {
         this.showArticleContents = false
         this.showTitleSettings = false
         this.showRichTextSettings = false
-        this.showStepDividerSettings = false
+        this.showSubheaderSettings = false
     }
 
+    /** Functions to update content */
     updateTitleContent(event) {
         try {
             this.newArticle.articleContents[0].contents = event.target.value
+        } catch(e) {
+            console.log('could not set text-area value')
+        }
+    }
+
+    updateSubheaderContent(event) {
+        try {
+            this.newArticle.articleContents[this.subheaderIndex].contents = event.target.value
         } catch(e) {
             console.log('could not set text-area value')
         }
@@ -99,8 +114,8 @@ export class CreateArticleComponent implements OnInit {
     addArticleItem(event) {
         if(event === "RichText"){
             this.addRichTextComponent()
-        }else if (event === "Step Divider") {
-            this.addStepDividerComponent()
+        }else if (event === "Subheader") {
+            this.addSubheaderComponent()
         }else if (event === "Bulleted List") {
             this.addBulletedListComponent()
         }else if (event === "Numbered List") {
@@ -123,12 +138,12 @@ export class CreateArticleComponent implements OnInit {
         this.newArticle.articleContents.push(this.richTextSection)
     }
 
-    addStepDividerComponent() {
-        this.stepDividerSection = {
-            selector: "Step Divider",
+    addSubheaderComponent() {
+        this.subheaderSection = {
+            selector: "Subheader",
             contents: "Step 1"
         }
-        this.newArticle.articleContents.push(this.stepDividerSection)
+        this.newArticle.articleContents.push(this.subheaderSection)
     }
 
     addBulletedListComponent() {
@@ -184,8 +199,8 @@ export class CreateArticleComponent implements OnInit {
         } else return false
     }
 
-    isStepDividerComponent(component): boolean {
-        if(component.selector === "Step Divider") {
+    isSubheaderComponent(component): boolean {
+        if(component.selector === "Subheader") {
             return true
         } else return false
     }

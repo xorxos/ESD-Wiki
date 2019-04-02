@@ -3,7 +3,8 @@
         <div class="col-lg-3" *ngIf="showArticleContents">
             <article-contents-menu [newArticle]="newArticle" 
                                    (openAddItemMenu)="toggleShowAddItemMenu($event)"
-                                   (openTitleSettings)="toggleTitleSettings($event)"></article-contents-menu>
+                                   (openTitleSettings)="toggleTitleSettings($event)"
+                                   (openSubheaderSettings)="toggleSubheaderSettings($event)"></article-contents-menu>
         </div>
         <div class="col-lg-3" *ngIf="showArticleSettings">
             <article-settings-menu></article-settings-menu>
@@ -17,12 +18,17 @@
                                  (updateTitleContentMessage)="updateTitleContent($event)"
                                  (closeTitleSettingsMenuMessage)="toggleConfigurationSection($event)"></title-settings-menu>
         </div>
+        <div class="col-lg-3" *ngIf="showSubheaderSettings">
+            <subheader-settings-menu [newArticle]="newArticle"
+                                     [subheaderIndex]="subheaderIndex" 
+                                     (updateSubheaderContentMessage)="updateSubheaderContent($event)"
+                                     (closeSubheaderSettingsMenuMessage)="toggleConfigurationSection($event)"></subheader-settings-menu>
+        </div>
         <div class="col-lg-9">
             <div *ngFor="let component of newArticle.articleContents">
                 <h3 *ngIf="isTitleComponent(component)">{{component.contents}}</h3>
-                <div *ngIf="isStepDividerComponent(component)" style="margin-top: 10px;">
-                    <div style="font-size:20px; margin-bottom:5px;">{{component.contents}}</div>
-                    <div style="border-bottom: 2px solid #DAE0E6; margin-bottom:10px;"></div>
+                <div *ngIf="isSubheaderComponent(component)" style="margin-top: 10px;">
+                    <div style="font-size:20px; margin-bottom:5px; white-space: pre;">{{component.contents}}</div>
                 </div>
                 <div *ngIf="isRichTextComponent(component)">{{component.contents}}</div>
             </div>

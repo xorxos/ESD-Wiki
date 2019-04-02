@@ -16,5 +16,4 @@ export class AddItemMenuComponent {
     addItem(item:string) {
         this.addArticleItem.emit(item)
     }
-
 }

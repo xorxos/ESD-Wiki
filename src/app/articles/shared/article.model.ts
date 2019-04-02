@@ -29,7 +29,7 @@ export interface INumberedListSection {
     contents: string
 }
 
-export interface IStepDividerSection {
+export interface ISubheaderSection {
     selector: string,
     contents: string
 }

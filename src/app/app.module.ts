@@ -15,6 +15,7 @@ import { AddItemMenuComponent } from './articles/team-wiki/create-article/menus/
 import { TitleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/title-settings-menu.component';
 import { ArticleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-settings-menu.component';
 import { ArticleContentsMenuComponent } from './articles/team-wiki/create-article/menus/article-contents-menu.component';
+import { SubheaderSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/subheader-settings-menu.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ArticleContentsMenuComponent } from './articles/team-wiki/create-articl
     AddItemMenuComponent,
     TitleSettingsMenuComponent,
     ArticleSettingsMenuComponent,
-    ArticleContentsMenuComponent
+    ArticleContentsMenuComponent,
+    SubheaderSettingsMenuComponent
   ],
   imports: [
     BrowserModule,
