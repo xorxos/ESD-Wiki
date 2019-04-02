@@ -9,7 +9,7 @@ import { IArticle, ISubheaderSection } from 'src/app/articles/shared/article.mod
 export class SubheaderSettingsMenuComponent implements OnInit{
     
     @Input() newArticle:IArticle
-    @Input() subheaderIndex:number
+    @Input() sectionIndex:number
     @Output() updateSubheaderContentMessage = new EventEmitter<Input>()
     @Output() closeSubheaderSettingsMenuMessage = new EventEmitter<boolean>()
 
@@ -28,6 +28,6 @@ export class SubheaderSettingsMenuComponent implements OnInit{
     }
 
     getSubheader() {
-        this.subheader = this.newArticle.articleContents[this.subheaderIndex]
+        this.subheader = this.newArticle.articleContents[this.sectionIndex]
     }
 }

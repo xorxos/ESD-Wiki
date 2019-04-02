@@ -16,6 +16,7 @@ import { TitleSettingsMenuComponent } from './articles/team-wiki/create-article/
 import { ArticleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-settings-menu.component';
 import { ArticleContentsMenuComponent } from './articles/team-wiki/create-article/menus/article-contents-menu.component';
 import { SubheaderSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/subheader-settings-menu.component';
+import { RichtextSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/richtext-settings-menu.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SubheaderSettingsMenuComponent } from './articles/team-wiki/create-arti
     TitleSettingsMenuComponent,
     ArticleSettingsMenuComponent,
     ArticleContentsMenuComponent,
-    SubheaderSettingsMenuComponent
+    SubheaderSettingsMenuComponent,
+    RichtextSettingsMenuComponent
   ],
   imports: [
     BrowserModule,

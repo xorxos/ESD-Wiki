@@ -10,19 +10,24 @@ export class ArticleContentsMenuComponent {
 
     @Input() newArticle: IArticle
     @Output() openAddItemMenu = new EventEmitter<boolean>();
-    @Output() openTitleSettings = new EventEmitter<boolean>();
+    @Output() openTitleSettings = new EventEmitter<number>();
+    @Output() openRichTextSettings = new EventEmitter<number>();
     @Output() openSubheaderSettings = new EventEmitter<number>();
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
     }
 
-    toggleTitleSettings() {
-        this.openTitleSettings.emit(true)
+    toggleTitleSettings(itemIndex) {
+        this.openTitleSettings.emit(itemIndex)
     }
 
-    toggleSubheaderSettings(i) {
-        this.openSubheaderSettings.emit(i)
+    toggleSubheaderSettings(itemIndex) {
+        this.openSubheaderSettings.emit(itemIndex)
+    }
+
+    toggleRichTextSettings(itemIndex) {
+        this.openRichTextSettings.emit(itemIndex)
     }
 
 

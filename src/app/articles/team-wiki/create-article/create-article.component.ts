@@ -21,7 +21,7 @@ export class CreateArticleComponent implements OnInit {
     showRichTextSettings: boolean
     showSubheaderSettings: boolean
 
-    subheaderIndex:number
+    sectionIndex:number
 
     newArticle: IArticle
     titleSection: ITitleSection
@@ -69,17 +69,21 @@ export class CreateArticleComponent implements OnInit {
         this.showArticleContents = event
     }
 
-    toggleTitleSettings() {
+    toggleTitleSettings(event) {
         this.setMenuBooleansFalse()
+        this.sectionIndex = event
         this.showTitleSettings = true
     }
 
-    toggleRichTextSettings() {
+    toggleRichTextSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showRichTextSettings = true
     }
 
     toggleSubheaderSettings(event) {
         this.setMenuBooleansFalse()
-        this.subheaderIndex = event
+        this.sectionIndex = event
         this.showSubheaderSettings = true
     }
 
@@ -96,15 +100,24 @@ export class CreateArticleComponent implements OnInit {
     /** Functions to update content */
     updateTitleContent(event) {
         try {
-            this.newArticle.articleContents[0].contents = event.target.value
+            this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
         } catch(e) {
             console.log('could not set text-area value')
+            console.log(e)
         }
     }
 
     updateSubheaderContent(event) {
         try {
-            this.newArticle.articleContents[this.subheaderIndex].contents = event.target.value
+            this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
+        } catch(e) {
+            console.log('could not set text-area value')
+        }
+    }
+
+    updateRichtextContent(event) {
+        try {
+            this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
         } catch(e) {
             console.log('could not set text-area value')
         }

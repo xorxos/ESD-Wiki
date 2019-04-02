@@ -1,0 +1,15 @@
+<div class="box-shadow-container">
+    <div class="header-container">
+        <div class="title-settings-header inline-block">RichText Settings</div>
+        <i class="fa fa-times x-icon" (click)="closeRichtextSettingsMenu()"></i>
+    </div>
+    <div style="border-top: 1px solid #dfe3e8;">
+        <form class="setting-element" style="padding: 10px;">
+            <div class="form-group">
+                <label style="margin-bottom:5px;padding-left:3px;">Text</label>
+                <textarea class="form-control" rows="5" 
+                    (input)="updateRichtextContent($event)" value>{{richtextComponent.contents}}</textarea>
+            </div>
+        </form>
+    </div>
+</div>

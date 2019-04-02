@@ -1,12 +1,12 @@
 <div class="configuration-section-1">
         <div *ngFor="let component of newArticle.articleContents;let i = index">
             <div *ngIf="isTitleComponent(component)" class="configuration-object"
-                (click)="toggleTitleSettings()">
+                (click)="toggleTitleSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
             </div>
             <div *ngIf="isRichTextComponent(component)" class="configuration-object"
-                (click)="toggleRichTextSettings()">
+                (click)="toggleRichTextSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">
                     {{component.selector}}
                 </div>
