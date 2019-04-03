@@ -14,14 +14,25 @@ import { IArticle,
     styleUrls: ['create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
+
+    /** Booleans that handle when a menu is shown */
     showArticleContents: boolean
     showArticleSettings: boolean
     showAddItemMenu: boolean
     showTitleSettings: boolean
     showRichTextSettings: boolean
     showSubheaderSettings: boolean
+    showImageLeftSettings: boolean
+    showImageRightSettings: boolean
+    showFullWidthImageSettings: boolean
+    showBulletedListSettings: boolean
+    showNumberedListSettings: boolean
 
+    /** Index number of the component when changes are made in the settings */
     sectionIndex:number
+
+    /** Variables used when updating list objects such as bulleted lists and numbered lists */
+    selectedBulletedList
 
     newArticle: IArticle
     titleSection: ITitleSection
@@ -34,11 +45,17 @@ export class CreateArticleComponent implements OnInit {
     numberedListSection: INumberedListSection
 
     ngOnInit() {
+        /** Setting the initial boolean values to dictate which menu to show */
         this.showArticleContents = true
         this.showArticleSettings = false
         this.showAddItemMenu = false
         this.showTitleSettings = false
         this.showSubheaderSettings = false
+        this.showImageLeftSettings = false
+        this.showImageRightSettings = false
+        this.showFullWidthImageSettings = false
+        this.showBulletedListSettings = false
+        this.showNumberedListSettings = false
         this.titleSection = {
             selector: "Title",
             contents: "How to Create an Employee Account in PM"
@@ -52,8 +69,7 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    /** Functions to handle which menu/component is being shown */
-
+    /** Functions to handle which menu or component is being shown */
     toggleShowAddItemMenu(event) {
         this.setMenuBooleansFalse()
         this.showAddItemMenu = event
@@ -87,6 +103,36 @@ export class CreateArticleComponent implements OnInit {
         this.showSubheaderSettings = true
     }
 
+    toggleImageLeftSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showImageLeftSettings = true
+    }
+
+    toggleImageRightSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showImageRightSettings = true
+    }
+
+    toggleFullWidthImageSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showFullWidthImageSettings = true
+    }
+
+    toggleBulletedListSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showBulletedListSettings = true
+    }
+
+    toggleNumberedListSettings(event) {
+        this.setMenuBooleansFalse()
+        this.sectionIndex = event
+        this.showNumberedListSettings = true
+    }
+
     /** Re-usable function for toggling boolean values */
     setMenuBooleansFalse() {
         this.showArticleSettings = false
@@ -95,6 +141,11 @@ export class CreateArticleComponent implements OnInit {
         this.showTitleSettings = false
         this.showRichTextSettings = false
         this.showSubheaderSettings = false
+        this.showImageLeftSettings = false
+        this.showImageRightSettings = false
+        this.showFullWidthImageSettings = false
+        this.showBulletedListSettings = false
+        this.showNumberedListSettings = false
     }
 
     /** Functions to update content */
@@ -123,6 +174,31 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
+    updateBulletedListContent(event){
+        console.log("Updating Bullets")
+        try {
+            this.newArticle.articleContents[this.sectionIndex].contents[event.index] = event.event.target.value
+        } catch(e) {
+            console.log('could not set text-area value')
+        }
+    }
+
+    updateNumberedListContent(event){
+        console.log("Updating Numbered")
+        try {
+            this.newArticle.articleContents[this.sectionIndex].contents[event.index] = event.event.target.value
+        } catch(e) {
+            console.log('could not set text-area value')
+        }
+    }
+
+    /** Function to remove component */
+    deleteComponent(index:number) {
+        if (index !== -1) {
+            this.newArticle.articleContents.splice(index, 1)
+        }
+    }
+
     /** Functions to add components */
     addArticleItem(event) {
         if(event === "RichText"){
@@ -146,7 +222,7 @@ export class CreateArticleComponent implements OnInit {
     addRichTextComponent() {
         this.richTextSection = {
             selector: "RichText",
-            contents: "This is a step by step guide on how to create a new employee account in profile manager. It covers all of the approvals needed as well as what information the ESD requires to create the account."
+            contents: "This is some rich text. Extra spaces and returns are shown exactly as entered."
         }
         this.newArticle.articleContents.push(this.richTextSection)
     }
@@ -162,7 +238,7 @@ export class CreateArticleComponent implements OnInit {
     addBulletedListComponent() {
         this.bulletedListSection = {
             selector: "Bulleted List",
-            contents: "Step 1"
+            contents: ["Item 1", "Item 2", "Item 3"]
         }
         this.newArticle.articleContents.push(this.bulletedListSection)
     }
@@ -170,7 +246,7 @@ export class CreateArticleComponent implements OnInit {
     addNumberedListComponent() {
         this.numberedListSection = {
             selector: "Numbered List",
-            contents: "Step 1"
+            contents: ["Item 1", "Item 2", "Item 3"]
         }
         this.newArticle.articleContents.push(this.numberedListSection)
     }

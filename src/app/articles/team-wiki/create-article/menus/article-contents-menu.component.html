@@ -24,7 +24,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isBulletedListComponent(component)" class="configuration-object">
+            <div *ngIf="isBulletedListComponent(component)" class="configuration-object"
+                 (click)="toggleBulletedListSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -32,7 +33,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isNumberedListComponent(component)" class="configuration-object">
+            <div *ngIf="isNumberedListComponent(component)" class="configuration-object"
+                 (click)="toggleNumberedListSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -40,7 +42,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isImageLeftComponent(component)" class="configuration-object">
+            <div *ngIf="isImageLeftComponent(component)" class="configuration-object"
+                 (click)="toggleImageLeftSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -48,7 +51,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isImageRightComponent(component)" class="configuration-object">
+            <div *ngIf="isImageRightComponent(component)" class="configuration-object"
+                 (click)="toggleImageRightSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -56,7 +60,8 @@
                     <i class="fa fa-sort-down block"></i>
                 </div>
             </div>
-            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object">
+            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object"
+                 (click)="toggleFullWidthImageSettings(i)">
                 <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">

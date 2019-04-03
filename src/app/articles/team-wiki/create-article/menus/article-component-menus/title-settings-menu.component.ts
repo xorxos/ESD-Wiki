@@ -4,7 +4,7 @@ import { IArticle, ITitleSection } from 'src/app/articles/shared/article.model';
 @Component({
     selector: 'title-settings-menu',
     templateUrl: './title-settings-menu.component.html',
-    styleUrls: ['./title-settings-menu.component.css']
+    styleUrls: ['./shared-settings-styles.component.css']
 })
 export class TitleSettingsMenuComponent implements OnInit{
     @Input() newArticle:IArticle

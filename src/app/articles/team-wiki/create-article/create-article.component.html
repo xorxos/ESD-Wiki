@@ -5,7 +5,12 @@
                                    (openAddItemMenu)="toggleShowAddItemMenu($event)"
                                    (openTitleSettings)="toggleTitleSettings($event)"
                                    (openRichTextSettings)="toggleRichTextSettings($event)"
-                                   (openSubheaderSettings)="toggleSubheaderSettings($event)"></article-contents-menu>
+                                   (openSubheaderSettings)="toggleSubheaderSettings($event)"
+                                   (openBulletedListSettings)="toggleBulletedListSettings($event)"
+                                   (openNumberedListSettings)="toggleNumberedListSettings($event)"
+                                   (openImageLeftSettings)="toggleImageLeftSettings($event)"
+                                   (openImageRightSettings)="toggleImageRightSettings($event)"
+                                   (openFullWidthImageSettings)="toggleFullWidthImageSettings($event)"></article-contents-menu>
         </div>
         <div class="col-lg-3" *ngIf="showArticleSettings">
             <article-settings-menu></article-settings-menu>
@@ -24,21 +29,72 @@
             <richtext-settings-menu [newArticle]="newArticle"
                                      [sectionIndex]="sectionIndex"
                                      (updateRichtextContentMessage)="updateRichtextContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
                                      (closeRichtextSettingsMenuMessage)="toggleConfigurationSection($event)"></richtext-settings-menu>
         </div>
         <div class="col-lg-3" *ngIf="showSubheaderSettings">
             <subheader-settings-menu [newArticle]="newArticle"
                                      [sectionIndex]="sectionIndex"
                                      (updateSubheaderContentMessage)="updateSubheaderContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
                                      (closeSubheaderSettingsMenuMessage)="toggleConfigurationSection($event)"></subheader-settings-menu>
         </div>
+        <div class="col-lg-3" *ngIf="showImageLeftSettings">
+            <imageleft-settings-menu [newArticle]="newArticle"
+                                     [sectionIndex]="sectionIndex"
+                                     (updateImageLeftContentMessage)="updateSubheaderContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
+                                     (closeImageLeftSettingsMenuMessage)="toggleConfigurationSection($event)"></imageleft-settings-menu>
+        </div>
+        <div class="col-lg-3" *ngIf="showImageRightSettings">
+            <imageright-settings-menu [newArticle]="newArticle"
+                                     [sectionIndex]="sectionIndex"
+                                     (updateImageRightContentMessage)="updateSubheaderContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
+                                     (closeImageRightSettingsMenuMessage)="toggleConfigurationSection($event)"></imageright-settings-menu>
+        </div>
+        <div class="col-lg-3" *ngIf="showFullWidthImageSettings">
+            <fullwidthimage-settings-menu [newArticle]="newArticle"
+                                     [sectionIndex]="sectionIndex"
+                                     (updateFullWidthImageContentMessage)="updateSubheaderContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
+                                     (closeFullWidthImageSettingsMenuMessage)="toggleConfigurationSection($event)"></fullwidthimage-settings-menu>
+        </div>
+        <div class="col-lg-3" *ngIf="showBulletedListSettings">
+            <bulletedlist-settings-menu [newArticle]="newArticle"
+                                     [sectionIndex]="sectionIndex"
+                                     (updateBulletedListContentMessage)="updateBulletedListContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
+                                     (closeBulletedListSettingsMenuMessage)="toggleConfigurationSection($event)"></bulletedlist-settings-menu>
+        </div>
+        <div class="col-lg-3" *ngIf="showNumberedListSettings">
+            <numberedlist-settings-menu [newArticle]="newArticle"
+                                     [sectionIndex]="sectionIndex"
+                                     (updateNumberedListContentMessage)="updateNumberedListContent($event)"
+                                     (deleteComponentMessage)="deleteComponent($event)"
+                                     (closeNumberedListSettingsMenuMessage)="toggleConfigurationSection($event)"></numberedlist-settings-menu>
+        </div>
         <div class="col-lg-9">
-            <div *ngFor="let component of newArticle.articleContents">
-                <h3 *ngIf="isTitleComponent(component)">{{component.contents}}</h3>
-                <div *ngIf="isSubheaderComponent(component)" style="margin-top: 10px;">
-                    <div style="font-size:20px; margin-bottom:5px; white-space: pre;">{{component.contents}}</div>
-                </div>
-                <div *ngIf="isRichTextComponent(component)">{{component.contents}}</div>
-            </div>
+            <ng-container *ngFor="let component of newArticle.articleContents">
+                <ng-container *ngIf="isTitleComponent(component)">
+                    <h3>{{component.contents}}</h3>
+                </ng-container>
+                <ng-container *ngIf="isSubheaderComponent(component)">
+                    <div style="margin-top: 15px; font-size:20px; margin-bottom:5px; white-space: pre-wrap;">{{component.contents}}</div>
+                </ng-container>
+                <ng-container *ngIf="isRichTextComponent(component)">
+                    <div style="white-space: pre-wrap;">{{component.contents}}</div>
+                </ng-container>
+                <ng-container *ngIf="isBulletedListComponent(component)">
+                    <ul style="padding-left: 20px">
+                        <li style *ngFor="let item of component.contents">{{item}}</li>
+                    </ul>
+                </ng-container>
+                <ng-container *ngIf="isNumberedListComponent(component)">
+                    <ol style="padding-left: 20px">
+                        <li *ngFor="let item of component.contents">{{item}}</li>
+                    </ol>
+                </ng-container>
+            </ng-container>
         </div>
     </div>

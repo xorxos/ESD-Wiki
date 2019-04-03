@@ -4,7 +4,7 @@ import { IArticle, ISubheaderSection, IRichTextSection } from 'src/app/articles/
 @Component({
     selector: 'richtext-settings-menu',
     templateUrl: './richtext-settings-menu.component.html',
-    styleUrls: ['./richtext-settings-menu.component.css']
+    styleUrls: ['./shared-settings-styles.component.css']
 })
 export class RichtextSettingsMenuComponent implements OnInit{
     
@@ -12,6 +12,7 @@ export class RichtextSettingsMenuComponent implements OnInit{
     @Input() sectionIndex:number
     @Output() updateRichtextContentMessage = new EventEmitter<Input>()
     @Output() closeRichtextSettingsMenuMessage = new EventEmitter<boolean>()
+    @Output() deleteComponentMessage = new EventEmitter<number>()
 
     richtextComponent:IRichTextSection
 
@@ -29,5 +30,10 @@ export class RichtextSettingsMenuComponent implements OnInit{
 
     getRichtext() {
         this.richtextComponent = this.newArticle.articleContents[this.sectionIndex]
+    }
+
+    deleteComponent() {
+        this.deleteComponentMessage.emit(this.sectionIndex)
+        this.closeRichtextSettingsMenuMessage.emit(true)
     }
 }

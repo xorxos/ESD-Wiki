@@ -21,12 +21,12 @@ export interface IRichTextSection {
 
 export interface IBulletedListSection {
     selector: string,
-    contents: string
+    contents: string[]
 }
 
 export interface INumberedListSection {
     selector: string,
-    contents: string
+    contents: string[]
 }
 
 export interface ISubheaderSection {

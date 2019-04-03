@@ -1,13 +1,14 @@
 <div class="box-shadow-container">
     <div class="header-container">
-        <div class="title-settings-header inline-block">Subheader Settings</div>
-        <i class="fa fa-times x-icon" (click)="closeSubheaderSettingsMenu()"></i>
+        <div class="title-settings-header inline-block">Full-Width Image Settings</div>
+        <i class="fa fa-times x-icon" (click)="closeFullWidthImageSettingsMenu()"></i>
     </div>
     <div style="border-top: 1px solid #dfe3e8;">
         <form class="setting-element" style="padding: 10px;">
             <div class="form-group">
-                <label style="margin-bottom:5px;padding-left:3px;">Subheader</label>
-                <input class="form-control" (input)="updateSubheaderContent($event)" value="{{subheader.contents}}"/>
+                <label style="margin-bottom:5px;padding-left:3px;">Image</label>
+                <textarea class="form-control" rows="5" (input)="updateFullWidthImageContent($event)"
+                    value>{{fullWidthImage.contents}}</textarea>
             </div>
         </form>
     </div>

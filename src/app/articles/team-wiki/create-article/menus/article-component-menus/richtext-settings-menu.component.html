@@ -7,9 +7,12 @@
         <form class="setting-element" style="padding: 10px;">
             <div class="form-group">
                 <label style="margin-bottom:5px;padding-left:3px;">Text</label>
-                <textarea class="form-control" rows="5" 
-                    (input)="updateRichtextContent($event)" value>{{richtextComponent.contents}}</textarea>
+                <textarea class="form-control" rows="5" (input)="updateRichtextContent($event)"
+                    value>{{richtextComponent.contents}}</textarea>
             </div>
         </form>
+    </div>
+    <div class="setting-element" style="border-top: 1px solid #dfe3e8; min-height: 60px;">
+        <button (click)="deleteComponent()" type="button" class="btn btn-block btn-danger">Delete</button>
     </div>
 </div>

@@ -13,6 +13,11 @@ export class ArticleContentsMenuComponent {
     @Output() openTitleSettings = new EventEmitter<number>();
     @Output() openRichTextSettings = new EventEmitter<number>();
     @Output() openSubheaderSettings = new EventEmitter<number>();
+    @Output() openBulletedListSettings = new EventEmitter<number>();
+    @Output() openNumberedListSettings = new EventEmitter<number>();
+    @Output() openImageLeftSettings = new EventEmitter<number>();
+    @Output() openImageRightSettings = new EventEmitter<number>();
+    @Output() openFullWidthImageSettings = new EventEmitter<number>();
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
@@ -22,12 +27,32 @@ export class ArticleContentsMenuComponent {
         this.openTitleSettings.emit(itemIndex)
     }
 
+    toggleRichTextSettings(itemIndex) {
+        this.openRichTextSettings.emit(itemIndex)
+    }
+
     toggleSubheaderSettings(itemIndex) {
         this.openSubheaderSettings.emit(itemIndex)
     }
 
-    toggleRichTextSettings(itemIndex) {
-        this.openRichTextSettings.emit(itemIndex)
+    toggleBulletedListSettings(itemIndex) {
+        this.openBulletedListSettings.emit(itemIndex)
+    }
+
+    toggleNumberedListSettings(itemIndex) {
+        this.openNumberedListSettings.emit(itemIndex)
+    }
+
+    toggleImageLeftSettings(itemIndex) {
+        this.openImageLeftSettings.emit(itemIndex)
+    }
+
+    toggleImageRightSettings(itemIndex) {
+        this.openImageRightSettings.emit(itemIndex)
+    }
+
+    toggleFullWidthImageSettings(itemIndex) {
+        this.openFullWidthImageSettings.emit(itemIndex)
     }
 
 
