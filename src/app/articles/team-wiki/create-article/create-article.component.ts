@@ -148,6 +148,27 @@ export class CreateArticleComponent implements OnInit {
         this.showNumberedListSettings = false
     }
 
+    /** Functions to re-arrange newArticle.articleContents */
+    moveComponentUp(index) {
+        var oldIndex = index
+        var newIndex = index - 1
+        var item = this.newArticle.articleContents[oldIndex]
+        if(newIndex > 0) {
+            this.newArticle.articleContents.splice(oldIndex, 1)
+            this.newArticle.articleContents.splice(newIndex, 0, item)
+        }
+    }
+
+    moveComponentDown(index) {
+        var oldIndex = index
+        var newIndex = index + 1
+        var item = this.newArticle.articleContents[oldIndex]
+        if(newIndex <= this.newArticle.articleContents.length) {
+            this.newArticle.articleContents.splice(oldIndex, 1)
+            this.newArticle.articleContents.splice(newIndex, 0, item)
+        }
+    }
+
     /** Functions to update content */
     updateTitleContent(event) {
         try {

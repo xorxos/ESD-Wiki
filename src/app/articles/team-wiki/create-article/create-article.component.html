@@ -10,7 +10,9 @@
                                    (openNumberedListSettings)="toggleNumberedListSettings($event)"
                                    (openImageLeftSettings)="toggleImageLeftSettings($event)"
                                    (openImageRightSettings)="toggleImageRightSettings($event)"
-                                   (openFullWidthImageSettings)="toggleFullWidthImageSettings($event)"></article-contents-menu>
+                                   (openFullWidthImageSettings)="toggleFullWidthImageSettings($event)"
+                                   (moveComponentUpMessage)="moveComponentUp($event)"
+                                   (moveComponentDownMessage)="moveComponentDown($event)"></article-contents-menu>
         </div>
         <div class="col-lg-3" *ngIf="showArticleSettings">
             <article-settings-menu></article-settings-menu>

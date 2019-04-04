@@ -18,6 +18,8 @@ export class ArticleContentsMenuComponent {
     @Output() openImageLeftSettings = new EventEmitter<number>();
     @Output() openImageRightSettings = new EventEmitter<number>();
     @Output() openFullWidthImageSettings = new EventEmitter<number>();
+    @Output() moveComponentUpMessage = new EventEmitter<number>();
+    @Output() moveComponentDownMessage = new EventEmitter<number>();
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
@@ -103,5 +105,14 @@ export class ArticleContentsMenuComponent {
         if(component.selector === "Full-Width Image") {
             return true
         } else return false
+    }
+
+    /** Functions to send messages up to the parent to re-arrange components */
+    moveComponentUp(index) {
+        this.moveComponentUpMessage.emit(index)
+    }
+
+    moveComponentDown(index) {
+        this.moveComponentDownMessage.emit(index)
     }
 }

@@ -8,65 +8,71 @@
             <div *ngIf="isRichTextComponent(component)" class="configuration-object-container">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
                      (click)="toggleRichTextSettings(i)">
-                    {{component.selector}}
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon" (click)="doNothing()"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isSubheaderComponent(component)" class="configuration-object-container"
-                 (click)="toggleSubheaderSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isSubheaderComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleSubheaderSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isBulletedListComponent(component)" class="configuration-object-container"
-                 (click)="toggleBulletedListSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isBulletedListComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleBulletedListSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isNumberedListComponent(component)" class="configuration-object-container"
-                 (click)="toggleNumberedListSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isNumberedListComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleNumberedListSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isImageLeftComponent(component)" class="configuration-object-container"
-                 (click)="toggleImageLeftSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isImageLeftComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleImageLeftSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isImageRightComponent(component)" class="configuration-object-container"
-                 (click)="toggleImageRightSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isImageRightComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleImageRightSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object-container"
-                 (click)="toggleFullWidthImageSettings(i)">
-                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
+            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleFullWidthImageSettings(i)">
+                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block up-icon"></i>
-                    <i class="fa fa-sort-down block down-icon"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="moveComponentUp(i)"></i>
+                    <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
         </div>
