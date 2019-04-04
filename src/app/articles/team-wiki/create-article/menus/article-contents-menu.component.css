@@ -22,16 +22,41 @@
     padding-top: 40px;
 }
 
-.configuration-object {
+.configuration-object-container {
     min-height: 60px;
-    cursor: pointer;
     background-color: white;
-    padding: 12px 20px;
     border-top: 2px solid #dfe3e8;
     border-right: 2px solid #dfe3e8;
     border-left: 2px solid #dfe3e8;
 }
 
+.configuration-object {
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 83%;
+}
+
 .configuration-order {
     float: right;
+    padding: 5px 10px;
+}
+
+.up-icon {
+    height: 24px;
+    padding: 6px 0px;
+    cursor: pointer;
+    width: 30px;
+    color: rgba(0,0,0,.8);
+    text-align: center;
+    line-height: 1rem;
+}
+
+.down-icon {
+    height: 24px;
+    padding: 6px 0px;
+    cursor: pointer;
+    width: 30px;
+    color: rgba(0,0,0,.8);
+    text-align: center;
+    line-height: .5rem;
 }

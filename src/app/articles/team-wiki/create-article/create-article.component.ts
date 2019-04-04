@@ -58,7 +58,7 @@ export class CreateArticleComponent implements OnInit {
         this.showNumberedListSettings = false
         this.titleSection = {
             selector: "Title",
-            contents: "How to Create an Employee Account in PM"
+            contents: "This is a Title"
         }
         this.newArticle = {
             id: 20,

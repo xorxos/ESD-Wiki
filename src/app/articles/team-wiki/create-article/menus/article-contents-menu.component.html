@@ -1,72 +1,72 @@
 <div class="configuration-section-1">
         <div *ngFor="let component of newArticle.articleContents;let i = index">
-            <div *ngIf="isTitleComponent(component)" class="configuration-object"
+            <div *ngIf="isTitleComponent(component)" class="configuration-object-container"
                 (click)="toggleTitleSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
             </div>
-            <div *ngIf="isRichTextComponent(component)" class="configuration-object"
-                (click)="toggleRichTextSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">
+            <div *ngIf="isRichTextComponent(component)" class="configuration-object-container">
+                <div class="configuration-object inline-block" style="line-height: 2rem;"
+                     (click)="toggleRichTextSettings(i)">
                     {{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon" (click)="doNothing()"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isSubheaderComponent(component)" class="configuration-object"
+            <div *ngIf="isSubheaderComponent(component)" class="configuration-object-container"
                  (click)="toggleSubheaderSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isBulletedListComponent(component)" class="configuration-object"
+            <div *ngIf="isBulletedListComponent(component)" class="configuration-object-container"
                  (click)="toggleBulletedListSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isNumberedListComponent(component)" class="configuration-object"
+            <div *ngIf="isNumberedListComponent(component)" class="configuration-object-container"
                  (click)="toggleNumberedListSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isImageLeftComponent(component)" class="configuration-object"
+            <div *ngIf="isImageLeftComponent(component)" class="configuration-object-container"
                  (click)="toggleImageLeftSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isImageRightComponent(component)" class="configuration-object"
+            <div *ngIf="isImageRightComponent(component)" class="configuration-object-container"
                  (click)="toggleImageRightSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
-            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object"
+            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object-container"
                  (click)="toggleFullWidthImageSettings(i)">
-                <div class="inline-block" style="line-height: 2rem;">{{component.selector}}
+                <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
                 <div class="configuration-order">
-                    <i class="fa fa-sort-up block"></i>
-                    <i class="fa fa-sort-down block"></i>
+                    <i class="fa fa-sort-up block up-icon"></i>
+                    <i class="fa fa-sort-down block down-icon"></i>
                 </div>
             </div>
         </div>
