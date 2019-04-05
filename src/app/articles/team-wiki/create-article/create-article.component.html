@@ -85,7 +85,7 @@
                         {{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isRichTextComponent(component)">
-                    <div style="white-space: pre-wrap;" 
+                    <div style="white-space: pre-wrap; padding-left: 5px;" 
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isBulletedListComponent(component)">
