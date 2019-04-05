@@ -12,14 +12,15 @@
     text-align: center;
 }
 
-.box-shadow-container {
-    -webkit-box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+.box-container {
+    border-left: 2px solid #ebeced;
+    border-right: 2px solid #ebeced;
 }
 
 .title-settings-header {
     padding-top: 14px;
     padding-left: 30px;
+    margin: 2px;
     font-weight: 600 !important;
     line-height: 2rem;
 }

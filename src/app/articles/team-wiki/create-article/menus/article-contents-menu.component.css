@@ -20,6 +20,8 @@
 
 .configuration-section-1 {
     padding-top: 40px;
+    width: 100%;
+    position: absolute;
 }
 
 .configuration-object-container {
@@ -33,7 +35,7 @@
 .configuration-object {
     padding: 12px 20px;
     cursor: pointer;
-    width: 83%;
+    min-width: 80%;
 }
 
 .configuration-order {

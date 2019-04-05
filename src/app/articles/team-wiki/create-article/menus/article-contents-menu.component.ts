@@ -20,6 +20,8 @@ export class ArticleContentsMenuComponent {
     @Output() openFullWidthImageSettings = new EventEmitter<number>();
     @Output() moveComponentUpMessage = new EventEmitter<number>();
     @Output() moveComponentDownMessage = new EventEmitter<number>();
+    @Output() highlightComponentMessage = new EventEmitter<number>();
+    @Output() dehighlightComponentMessage = new EventEmitter<number>();
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
@@ -114,5 +116,14 @@ export class ArticleContentsMenuComponent {
 
     moveComponentDown(index) {
         this.moveComponentDownMessage.emit(index)
+    }
+
+    /** Function to inform parent of hovered component */
+    highlightComponent(index) {
+        this.highlightComponentMessage.emit(index)
+    }
+
+    dehighlightComponent(index) {
+        this.dehighlightComponentMessage.emit(index)
     }
 }

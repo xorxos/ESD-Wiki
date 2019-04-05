@@ -11,40 +11,48 @@ export interface IArticle {
 
 export interface ITitleSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }
 
 export interface IRichTextSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }
 
 export interface IBulletedListSection {
     selector: string,
-    contents: string[]
+    contents: string[],
+    hovered: boolean
 }
 
 export interface INumberedListSection {
     selector: string,
-    contents: string[]
+    contents: string[],
+    hovered: boolean
 }
 
 export interface ISubheaderSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }
 
 export interface IImageLeftSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }
 
 export interface IImageRightSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }
 
 export interface IFullWidthImageSection {
     selector: string,
-    contents: string
+    contents: string,
+    hovered: boolean
 }

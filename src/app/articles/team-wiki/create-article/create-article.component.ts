@@ -58,7 +58,8 @@ export class CreateArticleComponent implements OnInit {
         this.showNumberedListSettings = false
         this.titleSection = {
             selector: "Title",
-            contents: "This is a Title"
+            contents: "This is a Title",
+            hovered: false
         }
         this.newArticle = {
             id: 20,
@@ -169,6 +170,21 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
+    /** Function to highlight the hovered component */
+    highlightComponent(index) {
+        /** Remove all existing highlights */
+        for (let i = 0; i < this.newArticle.articleContents.length; i++) {
+            this.newArticle.articleContents[i].hovered = false
+        }
+
+        /** Highlight the new hovered component */
+        this.newArticle.articleContents[index].hovered = true
+    }
+
+    dehighlightComponent(index) {
+        this.newArticle.articleContents[index].hovered = false
+    }
+
     /** Functions to update content */
     updateTitleContent(event) {
         try {
@@ -243,7 +259,8 @@ export class CreateArticleComponent implements OnInit {
     addRichTextComponent() {
         this.richTextSection = {
             selector: "RichText",
-            contents: "This is some rich text. Extra spaces and returns are shown exactly as entered."
+            contents: "This is some rich text. Extra spaces and returns are shown exactly as entered.",
+            hovered: false
         }
         this.newArticle.articleContents.push(this.richTextSection)
     }
@@ -251,7 +268,8 @@ export class CreateArticleComponent implements OnInit {
     addSubheaderComponent() {
         this.subheaderSection = {
             selector: "Subheader",
-            contents: "Step 1"
+            contents: "Step 1",
+            hovered: false
         }
         this.newArticle.articleContents.push(this.subheaderSection)
     }
@@ -259,7 +277,8 @@ export class CreateArticleComponent implements OnInit {
     addBulletedListComponent() {
         this.bulletedListSection = {
             selector: "Bulleted List",
-            contents: ["Item 1", "Item 2", "Item 3"]
+            contents: ["Item 1", "Item 2", "Item 3"],
+            hovered: false
         }
         this.newArticle.articleContents.push(this.bulletedListSection)
     }
@@ -267,7 +286,8 @@ export class CreateArticleComponent implements OnInit {
     addNumberedListComponent() {
         this.numberedListSection = {
             selector: "Numbered List",
-            contents: ["Item 1", "Item 2", "Item 3"]
+            contents: ["Item 1", "Item 2", "Item 3"],
+            hovered: false
         }
         this.newArticle.articleContents.push(this.numberedListSection)
     }
@@ -275,7 +295,8 @@ export class CreateArticleComponent implements OnInit {
     addImageLeftComponent() {
         this.imageLeftSection = {
             selector: "Image-left With Text",
-            contents: "This is some rich text"
+            contents: "This is some rich text",
+            hovered: false
         }
         this.newArticle.articleContents.push(this.imageLeftSection)
     }
@@ -283,7 +304,8 @@ export class CreateArticleComponent implements OnInit {
     addImageRightComponent() {
         this.imageRightSection = {
             selector: "Image-right With Text",
-            contents: "This is some rich text"
+            contents: "This is some rich text",
+            hovered: false
         }
         this.newArticle.articleContents.push(this.imageRightSection)
     }
@@ -291,7 +313,8 @@ export class CreateArticleComponent implements OnInit {
     addFullWidthImageComponent() {
         this.fullWidthImageSection = {
             selector: "Full-Width Image",
-            contents: "This is some rich text"
+            contents: "This is some rich text",
+            hovered: false
         }
         this.newArticle.articleContents.push(this.fullWidthImageSection)
     }
