@@ -1,50 +1,29 @@
 @media (min-width: 1200px) {
-    .container{
-        max-width: 1200px;
-    }
+  .container{
+      max-width: 900px;
   }
+}
 
-  .categorytitle-section {
-    padding-top:40px; 
-    font-weight: 500px;
-    margin-bottom: 5px;
-  }
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
-  .articles-list {
-    margin-top: 5px;
-    padding: 10px 15px;
-  }
+.white-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-  .hoverwell {
-    background-color: #fff;
-    border: 3px solid #5f758c;
-  }
-  
-  .hoverwell:hover {
-    background-color: #DAE0E6;
-    cursor: pointer;
-  }
+.soft-gray-section {
+  background-color: #f4f5f5;
+  height: calc(100vh - 128px);
+}
 
-  .article-container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+.category-section {
+  padding-top:80px;
+}
 
-  .article-title {
-    padding: 5px;
-    font-weight: 600;
-  }
-
-  .contact-section {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    height: 350px;
-  }
-
-  .contact-title {
-    padding: 20px;
-    font-weight: 600;
-    font-size: 20px;
-    color: black;
-    text-align: center;
-  }
+.search-box {
+  max-width: 600px;
+  margin: auto;
+}

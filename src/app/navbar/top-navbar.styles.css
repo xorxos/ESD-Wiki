@@ -1,37 +1,32 @@
-@media (min-width: 1200px) {
-    .container{
-        max-width: 1200px;
-        padding: 0px !important;
-    }
-  }
-
 
 .container {
     padding: 0px !important;
 }
 
 .navbar-nav a {
-    font-family: "fa5-proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 600;
-    color: #a3a6a9;
+    color: white;
     font-size: 15px;
     padding-top: 13px;
 }
 
 .navbar-nav a:hover {
-    color: #495057;
+    color: black;
 }
 
 .navbar-brand {
     font-weight: 700;
+    color: white;
 }
 
 .navbar {
-    background-color: white !important;
+    background-color: #42afff !important;
+    height: 50px;
 }
 
 .container-fluid{
-    border-bottom: 3px solid #ebeced;
+    background-color: #42afff !important;
 }
 
 .profile-container {

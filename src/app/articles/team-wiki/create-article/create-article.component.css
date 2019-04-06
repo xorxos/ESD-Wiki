@@ -11,7 +11,7 @@
 .col-lg-3 {
     background-color:#ebeced; 
     padding: 0px;
-    height: calc(100vh - 62.5px);
+    height: calc(100vh - 50px);
     overflow-y: auto;
 }
 
