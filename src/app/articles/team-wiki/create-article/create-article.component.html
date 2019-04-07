@@ -76,28 +76,28 @@
             <ng-container *ngFor="let component of newArticle.articleContents; let i = index;">
                 <ng-container *ngIf="isTitleComponent(component)">
                     <div [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <h3>{{component.contents}}</h3>
+                        <h3 style="margin-bottom: 20px">{{component.contents}}</h3>
                     </div>
                 </ng-container>
                 <ng-container *ngIf="isSubheaderComponent(component)">
-                    <div style="margin-top: 15px; font-size:20px; margin-bottom:5px; white-space: pre-wrap;" 
+                    <div style="margin-top: 18px; font-size:20px; margin-bottom:18px; white-space: pre-wrap;" 
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
                         {{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isRichTextComponent(component)">
-                    <div style="white-space: pre-wrap; padding-left: 5px;" 
+                    <div style="white-space: pre-wrap; padding-left: 5px; margin-top:15px; margin-bottom:15px;" 
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isBulletedListComponent(component)">
-                    <ul style="padding-left: 20px" 
+                    <ul style="padding-left: 40px" 
                         [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <li style *ngFor="let item of component.contents">{{item}}</li>
+                        <li style="padding-bottom: 14px;" *ngFor="let item of component.contents">{{item}}</li>
                     </ul>
                 </ng-container>
                 <ng-container *ngIf="isNumberedListComponent(component)">
-                    <ol style="padding-left: 20px" 
+                    <ol style="padding-left: 40px; margin-top: 15px; margin-bottom:15px;" 
                         [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <li *ngFor="let item of component.contents">{{item}}</li>
+                        <li style="padding-bottom: 14px;" *ngFor="let item of component.contents">{{item}}</li>
                     </ol>
                 </ng-container>
             </ng-container>
