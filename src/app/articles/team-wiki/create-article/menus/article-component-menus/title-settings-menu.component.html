@@ -1,7 +1,9 @@
 <div class="box-container">
     <div class="header-container">
         <div class="title-settings-header inline-block">Title Settings</div>
-        <i class="fa fa-times x-icon" (click)="closeTitleSettingsMenu()"></i>
+        <button type="button" class="close x-icon" aria-label="Close" (click)="closeTitleSettingsMenu()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div style="border-top: 1px solid #dfe3e8;">
         <form class="setting-element" style="padding: 10px;">

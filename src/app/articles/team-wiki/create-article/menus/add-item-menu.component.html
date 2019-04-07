@@ -1,7 +1,9 @@
 <div class="add-item-section">
     <div class="header-container box-shadow-container">
         <div class="header-element inline-block">Add Section</div>
-        <i class="fa fa-times x-icon" (click)="closeAddItemMenu()"></i>
+        <button type="button" class="close x-icon" aria-label="Close" (click)="closeAddItemMenu()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="box-shadow-container">
         <div class="title-element">Text</div>
