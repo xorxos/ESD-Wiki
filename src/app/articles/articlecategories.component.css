@@ -16,7 +16,8 @@
 
 .soft-gray-section {
   background-color: #f4f5f5;
-  height: calc(100vh - 128px);
+  height: 100%;
+  padding-bottom: 80px;
 }
 
 .welcome-section {
