@@ -71,12 +71,15 @@
     height: 60px;
     padding-top:17px;
     cursor: pointer;
-    color: #007fb0;
+    color: white;
+    font-weight: 600;
+    background-color: #42afff;
     border-right: 1px solid #d0d2d3;
     border-top: 1px solid #d0d2d3;
     border-bottom: 1px solid #d0d2d3;
   }
 
   .create-button:hover {
-    background-color: #E0E0E0;
+    background-color: white;
+    color: #333E48;
   }

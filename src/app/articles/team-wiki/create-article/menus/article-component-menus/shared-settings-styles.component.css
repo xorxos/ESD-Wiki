@@ -15,6 +15,9 @@
 .box-container {
     border-left: 2px solid #ebeced;
     border-right: 2px solid #ebeced;
+    display: flex; 
+    flex-direction: column; 
+    height:100%;
 }
 
 .title-settings-header {
@@ -37,4 +40,8 @@
     line-height: 2rem;
     padding: 15px 20px 14px 0px;
     cursor: pointer;
+}
+
+.column-spacer {
+    flex-grow:1;
 }
