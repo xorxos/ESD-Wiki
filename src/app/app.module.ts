@@ -16,7 +16,7 @@ import { TitleSettingsMenuComponent } from './articles/team-wiki/create-article/
 import { ArticleSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-settings-menu.component';
 import { ArticleContentsMenuComponent } from './articles/team-wiki/create-article/menus/article-contents-menu.component';
 import { SubheaderSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/subheader-settings-menu.component';
-import { RichtextSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/richtext-settings-menu.component';
+import { TextSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/text-settings-menu.component';
 import { BulletedListSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/bulletedlist-settings-menu.component';
 import { NumberedListSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/numberedlist-settings-menu.component';
 import { ImageLeftSettingsMenuComponent } from './articles/team-wiki/create-article/menus/article-component-menus/imageleft-settings-menu.component';
@@ -37,7 +37,7 @@ import { FullWidthImageSettingsMenuComponent } from './articles/team-wiki/create
     ArticleSettingsMenuComponent,
     ArticleContentsMenuComponent,
     SubheaderSettingsMenuComponent,
-    RichtextSettingsMenuComponent,
+    TextSettingsMenuComponent,
     BulletedListSettingsMenuComponent,
     NumberedListSettingsMenuComponent,
     ImageLeftSettingsMenuComponent,

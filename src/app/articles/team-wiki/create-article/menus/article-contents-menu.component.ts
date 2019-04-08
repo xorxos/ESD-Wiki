@@ -11,7 +11,7 @@ export class ArticleContentsMenuComponent {
     @Input() newArticle: IArticle
     @Output() openAddItemMenu = new EventEmitter<boolean>();
     @Output() openTitleSettings = new EventEmitter<number>();
-    @Output() openRichTextSettings = new EventEmitter<number>();
+    @Output() openTextSettings = new EventEmitter<number>();
     @Output() openSubheaderSettings = new EventEmitter<number>();
     @Output() openBulletedListSettings = new EventEmitter<number>();
     @Output() openNumberedListSettings = new EventEmitter<number>();
@@ -31,8 +31,8 @@ export class ArticleContentsMenuComponent {
         this.openTitleSettings.emit(itemIndex)
     }
 
-    toggleRichTextSettings(itemIndex) {
-        this.openRichTextSettings.emit(itemIndex)
+    toggleTextSettings(itemIndex) {
+        this.openTextSettings.emit(itemIndex)
     }
 
     toggleSubheaderSettings(itemIndex) {
@@ -67,8 +67,8 @@ export class ArticleContentsMenuComponent {
         } else return false
     }
 
-    isRichTextComponent(component): boolean {
-        if(component.selector === "RichText") {
+    isTextComponent(component): boolean {
+        if(component.selector === "Text") {
             return true
         } else return false
     }

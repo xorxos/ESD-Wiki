@@ -9,7 +9,19 @@
         <form class="setting-element" style="padding: 10px;">
             <div class="form-group">
                 <label style="margin-bottom:5px;padding-left:3px;">Subheader</label>
-                <input class="form-control" (input)="updateSubheaderContent($event)" value="{{subheader.contents}}"/>
+                <textarea class="form-control" (input)="updateSubheaderContent($event)" value="{{subheader.contents}}"></textarea>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Left Spacing (default: 0 pixels)</label>
+                <input class="form-control" (input)="updateLeftSpacing($event)" value="{{subheader.leftSpacing}}"/>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Top Spacing (default: 18 pixels)</label>
+                <input class="form-control" (input)="updateTopSpacing($event)" value="{{subheader.topSpacing}}"/>
+            </div>
+            <div class="form-group" style="margin-top:15px; padding-bottom: 20px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Bottom Spacing (default: 18 pixels)</label>
+                <input class="form-control" (input)="updateBottomSpacing($event)" value="{{subheader.bottomSpacing}}"/>
             </div>
         </form>
     </div>

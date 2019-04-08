@@ -10,6 +10,10 @@ export class NumberedListSettingsMenuComponent implements OnInit {
     @Input() newArticle: IArticle
     @Input() sectionIndex: number
     @Output() updateNumberedListContentMessage = new EventEmitter<object>()
+    @Output() updateLeftSpacingMessage = new EventEmitter<Input>()
+    @Output() updateTopSpacingMessage = new EventEmitter<Input>()
+    @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
+    @Output() updateItemSpacingMessage = new EventEmitter<Input>()
     @Output() closeNumberedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
@@ -25,6 +29,22 @@ export class NumberedListSettingsMenuComponent implements OnInit {
 
     updateNumberedListContent(event: Input, index: number) {
         this.updateNumberedListContentMessage.emit({ index: index, event: event })
+    }
+    
+    updateLeftSpacing(event:Input) {
+        this.updateLeftSpacingMessage.emit(event)
+    }
+
+    updateTopSpacing(event:Input) {
+        this.updateTopSpacingMessage.emit(event)
+    }
+
+    updateBottomSpacing(event:Input) {
+        this.updateBottomSpacingMessage.emit(event)
+    }
+
+    updateItemSpacing(event:Input) {
+        this.updateItemSpacingMessage.emit(event)
     }
 
     getNumberedList() {

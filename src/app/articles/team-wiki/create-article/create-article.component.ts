@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { IArticle, 
          ITitleSection, 
-         IRichTextSection, 
+         ITextSection, 
          ISubheaderSection, 
          IImageLeftSection, 
          IImageRightSection, 
@@ -20,7 +20,7 @@ export class CreateArticleComponent implements OnInit {
     showArticleSettings: boolean
     showAddItemMenu: boolean
     showTitleSettings: boolean
-    showRichTextSettings: boolean
+    showTextSettings: boolean
     showSubheaderSettings: boolean
     showImageLeftSettings: boolean
     showImageRightSettings: boolean
@@ -36,7 +36,7 @@ export class CreateArticleComponent implements OnInit {
 
     newArticle: IArticle
     titleSection: ITitleSection
-    richTextSection: IRichTextSection
+    textSection: ITextSection
     subheaderSection: ISubheaderSection
     imageLeftSection: IImageLeftSection
     imageRightSection: IImageRightSection
@@ -46,19 +46,12 @@ export class CreateArticleComponent implements OnInit {
 
     ngOnInit() {
         /** Setting the initial boolean values to dictate which menu to show */
+        this.setMenuBooleansFalse()
         this.showArticleContents = true
-        this.showArticleSettings = false
-        this.showAddItemMenu = false
-        this.showTitleSettings = false
-        this.showSubheaderSettings = false
-        this.showImageLeftSettings = false
-        this.showImageRightSettings = false
-        this.showFullWidthImageSettings = false
-        this.showBulletedListSettings = false
-        this.showNumberedListSettings = false
         this.titleSection = {
             selector: "Title",
             contents: "This is a Title",
+            bottomSpacing: 20,
             hovered: false
         }
         this.newArticle = {
@@ -92,10 +85,10 @@ export class CreateArticleComponent implements OnInit {
         this.showTitleSettings = true
     }
 
-    toggleRichTextSettings(event) {
+    toggleTextSettings(event) {
         this.setMenuBooleansFalse()
         this.sectionIndex = event
-        this.showRichTextSettings = true
+        this.showTextSettings = true
     }
 
     toggleSubheaderSettings(event) {
@@ -140,7 +133,7 @@ export class CreateArticleComponent implements OnInit {
         this.showAddItemMenu = false
         this.showArticleContents = false
         this.showTitleSettings = false
-        this.showRichTextSettings = false
+        this.showTextSettings = false
         this.showSubheaderSettings = false
         this.showImageLeftSettings = false
         this.showImageRightSettings = false
@@ -185,7 +178,40 @@ export class CreateArticleComponent implements OnInit {
         this.newArticle.articleContents[index].hovered = false
     }
 
-    /** Functions to update content */
+    /** Functions To Update Component Spacing */
+    updateLeftSpacing(event) {
+        try {
+            this.newArticle.articleContents[this.sectionIndex].leftSpacing = event.target.value
+        } catch(e) {
+            console.log('could not set left spacing value')
+        }
+    }
+
+    updateTopSpacing(event) {
+        try {
+            this.newArticle.articleContents[this.sectionIndex].topSpacing = event.target.value
+        } catch(e) {
+            console.log('could not set top spacing value')
+        }
+    }
+
+    updateBottomSpacing(event) {
+        try {
+            this.newArticle.articleContents[this.sectionIndex].bottomSpacing = event.target.value
+        } catch(e) {
+            console.log('could not set bottom spacing value')
+        }
+    }
+
+    updateItemSpacing(event) {
+        try {
+            this.newArticle.articleContents[this.sectionIndex].itemSpacing = event.target.value
+        } catch(e) {
+            console.log('could not set item spacing value')
+        }
+    }
+
+    /** Update Title Component Functions */
     updateTitleContent(event) {
         try {
             this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
@@ -195,6 +221,7 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
+    /** Update Subheader Component Functions */
     updateSubheaderContent(event) {
         try {
             this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
@@ -203,7 +230,8 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    updateRichtextContent(event) {
+    /** Update Text Component Functions */
+    updateTextContent(event) {
         try {
             this.newArticle.articleContents[this.sectionIndex].contents = event.target.value
         } catch(e) {
@@ -211,6 +239,7 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
+    /** Update BulletedList Component Functions */
     updateBulletedListContent(event){
         console.log("Updating Bullets")
         try {
@@ -220,6 +249,7 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
+    /** Update NumberedList Component Functions */
     updateNumberedListContent(event){
         console.log("Updating Numbered")
         try {
@@ -238,8 +268,8 @@ export class CreateArticleComponent implements OnInit {
 
     /** Functions to add components */
     addArticleItem(event) {
-        if(event === "RichText"){
-            this.addRichTextComponent()
+        if(event === "Text"){
+            this.addTextComponent()
         }else if (event === "Subheader") {
             this.addSubheaderComponent()
         }else if (event === "Bulleted List") {
@@ -256,19 +286,25 @@ export class CreateArticleComponent implements OnInit {
         this.toggleConfigurationSection(true)
     }
 
-    addRichTextComponent() {
-        this.richTextSection = {
-            selector: "RichText",
-            contents: "This is some rich text. Extra spaces and returns are shown exactly as entered.",
+    addTextComponent() {
+        this.textSection = {
+            selector: "Text",
+            contents: "This is some text. Extra spaces and returns are shown exactly as entered.",
+            leftSpacing: 5,
+            topSpacing: 15,
+            bottomSpacing: 15,
             hovered: false
         }
-        this.newArticle.articleContents.push(this.richTextSection)
+        this.newArticle.articleContents.push(this.textSection)
     }
 
     addSubheaderComponent() {
         this.subheaderSection = {
             selector: "Subheader",
             contents: "Step 1",
+            leftSpacing: 0,
+            topSpacing: 18,
+            bottomSpacing: 18,
             hovered: false
         }
         this.newArticle.articleContents.push(this.subheaderSection)
@@ -278,6 +314,10 @@ export class CreateArticleComponent implements OnInit {
         this.bulletedListSection = {
             selector: "Bulleted List",
             contents: ["Item 1", "Item 2", "Item 3"],
+            leftSpacing: 40,
+            topSpacing: 0,
+            bottomSpacing: 0,
+            itemSpacing: 14,
             hovered: false
         }
         this.newArticle.articleContents.push(this.bulletedListSection)
@@ -287,6 +327,10 @@ export class CreateArticleComponent implements OnInit {
         this.numberedListSection = {
             selector: "Numbered List",
             contents: ["Item 1", "Item 2", "Item 3"],
+            leftSpacing: 40,
+            topSpacing: 0,
+            bottomSpacing: 0,
+            itemSpacing: 14,
             hovered: false
         }
         this.newArticle.articleContents.push(this.numberedListSection)
@@ -296,6 +340,8 @@ export class CreateArticleComponent implements OnInit {
         this.imageLeftSection = {
             selector: "Image-left With Text",
             contents: "This is some rich text",
+            topSpacing: 0,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle.articleContents.push(this.imageLeftSection)
@@ -305,6 +351,8 @@ export class CreateArticleComponent implements OnInit {
         this.imageRightSection = {
             selector: "Image-right With Text",
             contents: "This is some rich text",
+            topSpacing: 0,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle.articleContents.push(this.imageRightSection)
@@ -314,6 +362,8 @@ export class CreateArticleComponent implements OnInit {
         this.fullWidthImageSection = {
             selector: "Full-Width Image",
             contents: "This is some rich text",
+            topSpacing: 0,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle.articleContents.push(this.fullWidthImageSection)
@@ -326,8 +376,8 @@ export class CreateArticleComponent implements OnInit {
         } else return false
     }
 
-    isRichTextComponent(component): boolean {
-        if(component.selector === "RichText") {
+    isTextComponent(component): boolean {
+        if(component.selector === "Text") {
             return true
         } else return false
     }

@@ -14,6 +14,22 @@
                         (input)="updateBulletedListContent($event, id)" value="{{item}}" />
                 </div>
             </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Left Spacing (default: 40 pixels)</label>
+                <input class="form-control" (input)="updateLeftSpacing($event)" value="{{bulletedList.leftSpacing}}"/>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Top Spacing (default: 0 pixels)</label>
+                <input class="form-control" (input)="updateTopSpacing($event)" value="{{bulletedList.topSpacing}}"/>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Bottom Spacing (default: 0 pixels)</label>
+                <input class="form-control" (input)="updateBottomSpacing($event)" value="{{bulletedList.bottomSpacing}}"/>
+            </div>
+            <div class="form-group" style="margin-top:15px; padding-bottom: 20px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Item Spacing (default: 14 pixels)</label>
+                <input class="form-control" (input)="updateItemSpacing($event)" value="{{bulletedList.itemSpacing}}"/>
+            </div>
         </form>
     </div>
     <div class="column-spacer"></div>

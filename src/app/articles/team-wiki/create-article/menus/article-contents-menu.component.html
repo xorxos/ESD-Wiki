@@ -7,11 +7,11 @@
                 <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
             </div>
-            <div *ngIf="isRichTextComponent(component)" class="configuration-object-container"
+            <div *ngIf="isTextComponent(component)" class="configuration-object-container"
                 (mouseenter)="highlightComponent(i)"
                 (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleRichTextSettings(i)">
+                     (click)="toggleTextSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">

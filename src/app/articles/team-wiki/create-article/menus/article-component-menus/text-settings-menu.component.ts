@@ -1,34 +1,34 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
-import { IArticle, ISubheaderSection } from 'src/app/articles/shared/article.model';
+import { IArticle, ITextSection } from 'src/app/articles/shared/article.model';
 
 @Component({
-    selector: 'subheader-settings-menu',
-    templateUrl: './subheader-settings-menu.component.html',
+    selector: 'text-settings-menu',
+    templateUrl: './text-settings-menu.component.html',
     styleUrls: ['./shared-settings-styles.component.css']
 })
-export class SubheaderSettingsMenuComponent implements OnInit{
+export class TextSettingsMenuComponent implements OnInit{
     
     @Input() newArticle:IArticle
     @Input() sectionIndex:number
-    @Output() updateSubheaderContentMessage = new EventEmitter<Input>()
+    @Output() updateTextContentMessage = new EventEmitter<Input>()
     @Output() updateLeftSpacingMessage = new EventEmitter<Input>()
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
-    @Output() closeSubheaderSettingsMenuMessage = new EventEmitter<boolean>()
+    @Output() closeTextSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
-    subheader:ISubheaderSection
+    textComponent:ITextSection
 
     ngOnInit(): void {
-        this.getSubheader()
+        this.getText()
     }
 
-    closeSubheaderSettingsMenu() {
-        this.closeSubheaderSettingsMenuMessage.emit(true)
+    closeTextSettingsMenu() {
+        this.closeTextSettingsMenuMessage.emit(true)
     }
 
-    updateSubheaderContent(event:Input) {
-        this.updateSubheaderContentMessage.emit(event)
+    updateTextContent(event:Input) {
+        this.updateTextContentMessage.emit(event)
     }
 
     updateLeftSpacing(event:Input) {
@@ -43,12 +43,12 @@ export class SubheaderSettingsMenuComponent implements OnInit{
         this.updateBottomSpacingMessage.emit(event)
     }
 
-    getSubheader() {
-        this.subheader = this.newArticle.articleContents[this.sectionIndex]
+    getText() {
+        this.textComponent = this.newArticle.articleContents[this.sectionIndex]
     }
 
     deleteComponent() {
         this.deleteComponentMessage.emit(this.sectionIndex)
-        this.closeSubheaderSettingsMenuMessage.emit(true)
+        this.closeTextSettingsMenuMessage.emit(true)
     }
 }

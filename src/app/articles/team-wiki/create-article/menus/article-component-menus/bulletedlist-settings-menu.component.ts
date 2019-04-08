@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
-import { FormsModule } from '@angular/forms';
 import { IArticle, IBulletedListSection } from 'src/app/articles/shared/article.model';
 
 @Component({
@@ -11,6 +10,10 @@ export class BulletedListSettingsMenuComponent implements OnInit{
     @Input() newArticle:IArticle
     @Input() sectionIndex:number
     @Output() updateBulletedListContentMessage = new EventEmitter<object>()
+    @Output() updateLeftSpacingMessage = new EventEmitter<Input>()
+    @Output() updateTopSpacingMessage = new EventEmitter<Input>()
+    @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
+    @Output() updateItemSpacingMessage = new EventEmitter<Input>()
     @Output() closeBulletedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
@@ -26,6 +29,22 @@ export class BulletedListSettingsMenuComponent implements OnInit{
 
     updateBulletedListContent(event:Input, index:number) {
         this.updateBulletedListContentMessage.emit({index:index, event:event})
+    }
+
+    updateLeftSpacing(event:Input) {
+        this.updateLeftSpacingMessage.emit(event)
+    }
+
+    updateTopSpacing(event:Input) {
+        this.updateTopSpacingMessage.emit(event)
+    }
+
+    updateBottomSpacing(event:Input) {
+        this.updateBottomSpacingMessage.emit(event)
+    }
+
+    updateItemSpacing(event:Input) {
+        this.updateItemSpacingMessage.emit(event)
     }
 
     getBulletedList() {

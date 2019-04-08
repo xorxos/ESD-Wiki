@@ -3,7 +3,7 @@
         <div class="col-lg-3" *ngIf="showArticleContents">
             <article-contents-menu [newArticle]="newArticle" (openAddItemMenu)="toggleShowAddItemMenu($event)"
                 (openTitleSettings)="toggleTitleSettings($event)"
-                (openRichTextSettings)="toggleRichTextSettings($event)"
+                (openTextSettings)="toggleTextSettings($event)"
                 (openSubheaderSettings)="toggleSubheaderSettings($event)"
                 (openBulletedListSettings)="toggleBulletedListSettings($event)"
                 (openNumberedListSettings)="toggleNumberedListSettings($event)"
@@ -27,15 +27,21 @@
                 (updateTitleContentMessage)="updateTitleContent($event)"
                 (closeTitleSettingsMenuMessage)="toggleConfigurationSection($event)"></title-settings-menu>
         </div>
-        <div class="col-lg-3" *ngIf="showRichTextSettings">
-            <richtext-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
-                (updateRichtextContentMessage)="updateRichtextContent($event)"
+        <div class="col-lg-3" *ngIf="showTextSettings">
+            <text-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
+                (updateTextContentMessage)="updateTextContent($event)"
+                (updateLeftSpacingMessage)="updateLeftSpacing($event)"
+                (updateTopSpacingMessage)="updateTopSpacing($event)"
+                (updateBottomSpacingMessage)="updateBottomSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
-                (closeRichtextSettingsMenuMessage)="toggleConfigurationSection($event)"></richtext-settings-menu>
+                (closeTextSettingsMenuMessage)="toggleConfigurationSection($event)"></text-settings-menu>
         </div>
         <div class="col-lg-3" *ngIf="showSubheaderSettings">
             <subheader-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                 (updateSubheaderContentMessage)="updateSubheaderContent($event)"
+                (updateLeftSpacingMessage)="updateLeftSpacing($event)"
+                (updateTopSpacingMessage)="updateTopSpacing($event)"
+                (updateBottomSpacingMessage)="updateBottomSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
                 (closeSubheaderSettingsMenuMessage)="toggleConfigurationSection($event)"></subheader-settings-menu>
         </div>
@@ -61,6 +67,10 @@
         <div class="col-lg-3" *ngIf="showBulletedListSettings">
             <bulletedlist-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                 (updateBulletedListContentMessage)="updateBulletedListContent($event)"
+                (updateLeftSpacingMessage)="updateLeftSpacing($event)"
+                (updateTopSpacingMessage)="updateTopSpacing($event)"
+                (updateBottomSpacingMessage)="updateBottomSpacing($event)"
+                (updateItemSpacingMessage)="updateItemSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
                 (closeBulletedListSettingsMenuMessage)="toggleConfigurationSection($event)">
             </bulletedlist-settings-menu>
@@ -68,6 +78,10 @@
         <div class="col-lg-3" *ngIf="showNumberedListSettings">
             <numberedlist-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                 (updateNumberedListContentMessage)="updateNumberedListContent($event)"
+                (updateLeftSpacingMessage)="updateLeftSpacing($event)"
+                (updateTopSpacingMessage)="updateTopSpacing($event)"
+                (updateBottomSpacingMessage)="updateBottomSpacing($event)"
+                (updateItemSpacingMessage)="updateItemSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
                 (closeNumberedListSettingsMenuMessage)="toggleConfigurationSection($event)">
             </numberedlist-settings-menu>
@@ -76,28 +90,38 @@
             <ng-container *ngFor="let component of newArticle.articleContents; let i = index;">
                 <ng-container *ngIf="isTitleComponent(component)">
                     <div [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <h3 style="margin-bottom: 20px">{{component.contents}}</h3>
+                        <h3 [style.marginBottom.px]="component.bottomSpacing">{{component.contents}}</h3>
                     </div>
                 </ng-container>
                 <ng-container *ngIf="isSubheaderComponent(component)">
-                    <div style="margin-top: 18px; font-size:20px; margin-bottom:18px; white-space: pre-wrap;" 
+                    <div style="font-size:20px; white-space: pre-wrap;"
+                         [style.marginTop.px]="component.topSpacing"
+                         [style.marginBottom.px]="component.bottomSpacing"
+                         [style.paddingLeft.px]="component.leftSpacing"
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
                         {{component.contents}}</div>
                 </ng-container>
-                <ng-container *ngIf="isRichTextComponent(component)">
-                    <div style="white-space: pre-wrap; padding-left: 5px; margin-top:15px; margin-bottom:15px;" 
+                <ng-container *ngIf="isTextComponent(component)">
+                    <div style="white-space: pre-wrap;"
+                         [style.marginTop.px]="component.topSpacing"
+                         [style.marginBottom.px]="component.bottomSpacing"
+                         [style.paddingLeft.px]="component.leftSpacing"
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isBulletedListComponent(component)">
-                    <ul style="padding-left: 40px" 
-                        [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <li style="padding-bottom: 14px;" *ngFor="let item of component.contents">{{item}}</li>
+                    <ul [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
+                        [style.marginTop.px]="component.topSpacing"
+                        [style.marginBottom.px]="component.bottomSpacing"
+                        [style.paddingLeft.px]="component.leftSpacing">
+                        <li [style.paddingBottom.px]="component.itemSpacing" *ngFor="let item of component.contents">{{item}}</li>
                     </ul>
                 </ng-container>
                 <ng-container *ngIf="isNumberedListComponent(component)">
-                    <ol style="padding-left: 40px; margin-top: 15px; margin-bottom:15px;" 
-                        [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <li style="padding-bottom: 14px;" *ngFor="let item of component.contents">{{item}}</li>
+                    <ol [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
+                        [style.marginTop.px]="component.topSpacing"
+                        [style.marginBottom.px]="component.bottomSpacing"
+                        [style.paddingLeft.px]="component.leftSpacing">
+                        <li [style.paddingBottom.px]="component.itemSpacing" *ngFor="let item of component.contents">{{item}}</li>
                     </ol>
                 </ng-container>
             </ng-container>
