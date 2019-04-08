@@ -1,17 +1,17 @@
 <div class="configuration-section-1">
-        <div *ngFor="let component of newArticle.articleContents;let i = index">
+        <div *ngFor="let component of newArticle.articleContents;let i = index"
+            (mouseenter)="highlightComponent(i)"
+            (mouseleave)="dehighlightComponent(i)">
             <div *ngIf="isTitleComponent(component)" class="configuration-object-container"
-                 (click)="toggleTitleSettings(i)"
-                 (mouseenter)="highlightComponent(i)"
-                 (mouseleave)="dehighlightComponent(i)">
+                 (click)="toggleTitleSettings(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
             </div>
-            <div *ngIf="isRichTextComponent(component)" class="configuration-object-container">
+            <div *ngIf="isRichTextComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleRichTextSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleRichTextSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -19,11 +19,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isSubheaderComponent(component)" class="configuration-object-container">
+            <div *ngIf="isSubheaderComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleSubheaderSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleSubheaderSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -31,11 +31,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isBulletedListComponent(component)" class="configuration-object-container">
+            <div *ngIf="isBulletedListComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleBulletedListSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleBulletedListSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -43,11 +43,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isNumberedListComponent(component)" class="configuration-object-container">
+            <div *ngIf="isNumberedListComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleNumberedListSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleNumberedListSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -55,11 +55,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isImageLeftComponent(component)" class="configuration-object-container">
+            <div *ngIf="isImageLeftComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleImageLeftSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleImageLeftSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -67,11 +67,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isImageRightComponent(component)" class="configuration-object-container">
+            <div *ngIf="isImageRightComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleImageRightSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleImageRightSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
@@ -79,11 +79,11 @@
                     <i class="fa fa-sort-down block down-icon" (click)="moveComponentDown(i)"></i>
                 </div>
             </div>
-            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object-container">
+            <div *ngIf="isFullWidthImageComponent(component)" class="configuration-object-container"
+                (mouseenter)="highlightComponent(i)"
+                (mouseleave)="dehighlightComponent(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;"
-                     (click)="toggleFullWidthImageSettings(i)"
-                     (mouseenter)="highlightComponent(i)"
-                     (mouseleave)="dehighlightComponent(i)">
+                     (click)="toggleFullWidthImageSettings(i)">
                      {{component.selector}}
                 </div>
                 <div class="configuration-order">
