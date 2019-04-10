@@ -22,7 +22,7 @@
 
 .col-lg-9 {
     padding: 30px;
-    height: calc(100vh - 62.5px);
+    height: calc(100vh - 50px);
     background-color: white;
     overflow-y: auto;
 }
