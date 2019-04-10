@@ -6,6 +6,7 @@ import { Component, Output, EventEmitter } from '@angular/core'
     styleUrls: ['./add-item-menu.component.css']
 })
 export class AddItemMenuComponent {
+
     @Output() addArticleItem = new EventEmitter<string>()
     @Output() closeMenu = new EventEmitter<boolean>()
 
@@ -13,7 +14,7 @@ export class AddItemMenuComponent {
         this.closeMenu.emit(true)
     }
 
-    addItem(item:string) {
+    addItem(item: string) {
         this.addArticleItem.emit(item)
     }
 }

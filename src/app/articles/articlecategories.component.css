@@ -16,7 +16,7 @@
 
 .soft-gray-section {
   background-color: #f4f5f5;
-  height: 100%;
+  min-height: calc(100vh - 305px);
   padding-bottom: 80px;
 }
 

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
 import { IArticle } from 'src/app/articles/shared/article.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { IArticle } from 'src/app/articles/shared/article.model';
     templateUrl: './article-contents-menu.component.html',
     styleUrls: ['./article-contents-menu.component.css']
 })
-export class ArticleContentsMenuComponent {
+export class ArticleContentsMenuComponent implements OnInit {
 
     @Input() newArticle: IArticle
     @Output() openAddItemMenu = new EventEmitter<boolean>();
@@ -22,9 +22,31 @@ export class ArticleContentsMenuComponent {
     @Output() moveComponentDownMessage = new EventEmitter<number>();
     @Output() highlightComponentMessage = new EventEmitter<number>();
     @Output() dehighlightComponentMessage = new EventEmitter<number>();
+    
+    showSections: boolean
+    showArticleSettings: boolean
+
+    ngOnInit(): void {
+        this.showArticleSettings = false
+        this.showSections = true
+    }
 
     showAddItemMenu() {
         this.openAddItemMenu.emit(true)
+    }
+    
+    toggleShowSections() {
+        if (this.showSections === false) {
+            this.showSections = true
+            this.showArticleSettings = false
+        }
+    }
+
+    toggleShowArticleSettings() {
+        if (this.showArticleSettings === false) {
+            this.showArticleSettings = true
+            this.showSections = false
+        }
     }
 
     toggleTitleSettings(itemIndex) {
