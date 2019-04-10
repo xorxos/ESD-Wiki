@@ -300,7 +300,7 @@ export class CreateArticleComponent implements OnInit {
         this.textSection = {
             selector: "Text",
             contents: "This is some text. Extra spaces and returns are shown exactly as entered.",
-            leftSpacing: 5,
+            leftSpacing: 2,
             topSpacing: 0,
             bottomSpacing: 0,
             hovered: false
