@@ -4,6 +4,11 @@
     }
   }
 
+.container-fluid {
+    padding: 0px;
+    background-color: #f4f5f5;
+}
+
 .container {
     font-family: "Segoe UI";
 }
@@ -18,5 +23,6 @@
 .col-lg-9 {
     padding: 30px;
     height: calc(100vh - 62.5px);
+    background-color: white;
     overflow-y: auto;
 }

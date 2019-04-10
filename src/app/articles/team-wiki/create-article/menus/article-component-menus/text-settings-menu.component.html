@@ -13,15 +13,15 @@
             </div>
             <div class="form-group" style="margin-top:15px;">
                 <label style="margin-bottom:5px;padding-left:3px;">Left Spacing (default: 5 pixels)</label>
-                <input class="form-control" (input)="updateLeftSpacing($event)" value="{{textComponent.leftSpacing}}"/>
+                <input class="form-control" type="number" (input)="updateLeftSpacing($event)" value="{{textComponent.leftSpacing}}"/>
             </div>
             <div class="form-group" style="margin-top:15px;">
                 <label style="margin-bottom:5px;padding-left:3px;">Top Spacing (default: 0 pixels)</label>
-                <input class="form-control" (input)="updateTopSpacing($event)" value="{{textComponent.topSpacing}}"/>
+                <input class="form-control" type="number" (input)="updateTopSpacing($event)" value="{{textComponent.topSpacing}}"/>
             </div>
             <div class="form-group" style="margin-top:15px; padding-bottom: 20px;">
                 <label style="margin-bottom:5px;padding-left:3px;">Bottom Spacing (default: 0 pixels)</label>
-                <input class="form-control" (input)="updateBottomSpacing($event)" value="{{textComponent.bottomSpacing}}"/>
+                <input class="form-control" type="number" (input)="updateBottomSpacing($event)" value="{{textComponent.bottomSpacing}}"/>
             </div>
         </form>
     </div>
