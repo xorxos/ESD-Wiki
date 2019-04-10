@@ -72,6 +72,8 @@
                 (updateBottomSpacingMessage)="updateBottomSpacing($event)"
                 (updateItemSpacingMessage)="updateItemSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
+                (deleteListItemMessage)="deleteListItem($event)"
+                (createListItemMessage)="createListItem()"
                 (closeBulletedListSettingsMenuMessage)="toggleConfigurationSection($event)">
             </bulletedlist-settings-menu>
         </div>
@@ -83,6 +85,8 @@
                 (updateBottomSpacingMessage)="updateBottomSpacing($event)"
                 (updateItemSpacingMessage)="updateItemSpacing($event)"
                 (deleteComponentMessage)="deleteComponent($event)"
+                (deleteListItemMessage)="deleteListItem($event)"
+                (createListItemMessage)="createListItem()"
                 (closeNumberedListSettingsMenuMessage)="toggleConfigurationSection($event)">
             </numberedlist-settings-menu>
         </div>
@@ -90,36 +94,36 @@
             <ng-container *ngFor="let component of newArticle.articleContents; let i = index;">
                 <ng-container *ngIf="isTitleComponent(component)">
                     <div [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                        <h3 [style.marginBottom.px]="component.bottomSpacing">{{component.contents}}</h3>
+                        <h3 style="margin-bottom:20px;" [style.paddingBottom.px]="component.bottomSpacing">{{component.contents}}</h3>
                     </div>
                 </ng-container>
                 <ng-container *ngIf="isSubheaderComponent(component)">
-                    <div style="font-size:20px; white-space: pre-wrap;"
-                         [style.marginTop.px]="component.topSpacing"
-                         [style.marginBottom.px]="component.bottomSpacing"
+                    <div style="font-size:20px; white-space: pre-wrap; margin-top: 18px; margin-bottom: 18px;"
+                         [style.paddingTop.px]="component.topSpacing"
+                         [style.paddingBottom.px]="component.bottomSpacing"
                          [style.paddingLeft.px]="component.leftSpacing"
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
                         {{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isTextComponent(component)">
-                    <div style="white-space: pre-wrap;"
-                         [style.marginTop.px]="component.topSpacing"
-                         [style.marginBottom.px]="component.bottomSpacing"
+                    <div style="white-space: pre-wrap; margin-top: 15px; margin-bottom: 15px;"
+                         [style.paddingTop.px]="component.topSpacing"
+                         [style.paddingBottom.px]="component.bottomSpacing"
                          [style.paddingLeft.px]="component.leftSpacing"
                          [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                 </ng-container>
                 <ng-container *ngIf="isBulletedListComponent(component)">
                     <ul [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
-                        [style.marginTop.px]="component.topSpacing"
-                        [style.marginBottom.px]="component.bottomSpacing"
+                        [style.paddingTop.px]="component.topSpacing"
+                        [style.paddingBottom.px]="component.bottomSpacing"
                         [style.paddingLeft.px]="component.leftSpacing">
                         <li [style.paddingBottom.px]="component.itemSpacing" *ngFor="let item of component.contents">{{item}}</li>
                     </ul>
                 </ng-container>
                 <ng-container *ngIf="isNumberedListComponent(component)">
                     <ol [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
-                        [style.marginTop.px]="component.topSpacing"
-                        [style.marginBottom.px]="component.bottomSpacing"
+                        [style.paddingTop.px]="component.topSpacing"
+                        [style.paddingBottom.px]="component.bottomSpacing"
                         [style.paddingLeft.px]="component.leftSpacing">
                         <li [style.paddingBottom.px]="component.itemSpacing" *ngFor="let item of component.contents">{{item}}</li>
                     </ol>

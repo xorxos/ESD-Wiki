@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
-import { IArticle, INumberedListSection } from 'src/app/articles/shared/article.model';
+import { IArticle, INumberedListSection } from 'src/app/articles/shared/article.model'
 
 @Component({
     selector: 'numberedlist-settings-menu',
@@ -16,6 +16,8 @@ export class NumberedListSettingsMenuComponent implements OnInit {
     @Output() updateItemSpacingMessage = new EventEmitter<Input>()
     @Output() closeNumberedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
+    @Output() deleteListItemMessage = new EventEmitter<number>()
+    @Output() createListItemMessage = new EventEmitter()
 
     numberedList: INumberedListSection
 
@@ -54,6 +56,14 @@ export class NumberedListSettingsMenuComponent implements OnInit {
     deleteComponent() {
         this.deleteComponentMessage.emit(this.sectionIndex)
         this.closeNumberedListSettingsMenuMessage.emit(true)
+    }
+
+    createListItem() {
+        this.createListItemMessage.emit()
+    }
+
+    deleteListItem(index) {
+        this.deleteListItemMessage.emit(index)
     }
 
     trackByFn(index: any, item: any) {

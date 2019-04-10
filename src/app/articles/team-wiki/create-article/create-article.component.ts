@@ -51,7 +51,7 @@ export class CreateArticleComponent implements OnInit {
         this.titleSection = {
             selector: "Title",
             contents: "This is a Title",
-            bottomSpacing: 20,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle = {
@@ -239,7 +239,7 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    /** Update BulletedList Component Functions */
+    /** Update BulletedList & NumberedList Component Functions */
     updateBulletedListContent(event){
         console.log("Updating Bullets")
         try {
@@ -249,7 +249,6 @@ export class CreateArticleComponent implements OnInit {
         }
     }
 
-    /** Update NumberedList Component Functions */
     updateNumberedListContent(event){
         console.log("Updating Numbered")
         try {
@@ -257,6 +256,17 @@ export class CreateArticleComponent implements OnInit {
         } catch(e) {
             console.log('could not set text-area value')
         }
+    }
+
+    deleteListItem(index) {
+        if(index !== -1) {
+            this.newArticle.articleContents[this.sectionIndex].contents.splice(index, 1)
+            console.log("Deleting list item: " + index)
+        }
+    }
+
+    createListItem() {
+        this.newArticle.articleContents[this.sectionIndex].contents.push("New Item")
     }
 
     /** Function to remove component */
@@ -291,8 +301,8 @@ export class CreateArticleComponent implements OnInit {
             selector: "Text",
             contents: "This is some text. Extra spaces and returns are shown exactly as entered.",
             leftSpacing: 5,
-            topSpacing: 15,
-            bottomSpacing: 15,
+            topSpacing: 0,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle.articleContents.push(this.textSection)
@@ -303,8 +313,8 @@ export class CreateArticleComponent implements OnInit {
             selector: "Subheader",
             contents: "Step 1",
             leftSpacing: 0,
-            topSpacing: 18,
-            bottomSpacing: 18,
+            topSpacing: 0,
+            bottomSpacing: 0,
             hovered: false
         }
         this.newArticle.articleContents.push(this.subheaderSection)

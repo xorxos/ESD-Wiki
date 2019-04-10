@@ -17,8 +17,7 @@
   
   .soft-gray-section2 {
     background-color: #f4f5f5;
-    height: 100%;
-    padding-bottom: 80px;
+    height: calc(100vh - 128px);
   }
   
   .category-section {

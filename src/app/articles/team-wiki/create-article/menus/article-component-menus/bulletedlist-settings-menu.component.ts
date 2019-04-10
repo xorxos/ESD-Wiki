@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
-import { IArticle, IBulletedListSection } from 'src/app/articles/shared/article.model';
+import { IArticle, IBulletedListSection } from 'src/app/articles/shared/article.model'
 
 @Component({
     selector: 'bulletedlist-settings-menu',
@@ -16,6 +16,8 @@ export class BulletedListSettingsMenuComponent implements OnInit{
     @Output() updateItemSpacingMessage = new EventEmitter<Input>()
     @Output() closeBulletedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
+    @Output() deleteListItemMessage = new EventEmitter<number>()
+    @Output() createListItemMessage = new EventEmitter<number>()
 
     bulletedList:IBulletedListSection
 
@@ -54,6 +56,15 @@ export class BulletedListSettingsMenuComponent implements OnInit{
     deleteComponent() {
         this.deleteComponentMessage.emit(this.sectionIndex)
         this.closeBulletedListSettingsMenuMessage.emit(true)
+    }
+    
+    createListItem() {
+        this.createListItemMessage.emit()
+    }
+
+    
+    deleteListItem(event) {
+        this.deleteListItemMessage.emit(event)
     }
 
     trackByFn(index: any, item: any) {
