@@ -10,6 +10,7 @@ export class TitleSettingsMenuComponent implements OnInit{
     @Input() newArticle:IArticle
     @Input() sectionIndex:number
     @Output() updateTitleContentMessage = new EventEmitter<Input>()
+    @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
     @Output() closeTitleSettingsMenuMessage = new EventEmitter<boolean>()
 
     title:ITitleSection
@@ -24,6 +25,10 @@ export class TitleSettingsMenuComponent implements OnInit{
 
     updateTitleContent(event:Input) {
         this.updateTitleContentMessage.emit(event)
+    }
+    
+    updateBottomSpacing(event:Input) {
+        this.updateBottomSpacingMessage.emit(event)
     }
 
     getTitle() {

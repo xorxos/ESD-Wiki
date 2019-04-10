@@ -1,8 +1,12 @@
 <div class="configuration-section-1">
+    <div class="article-menu">
+        <div class="article-item-active" style="margin-right: 5px;">Sections</div>
+        <div class="article-item">Article Settings</div>
+    </div>
         <div *ngFor="let component of newArticle.articleContents;let i = index"
             (mouseenter)="highlightComponent(i)"
             (mouseleave)="dehighlightComponent(i)">
-            <div *ngIf="isTitleComponent(component)" class="configuration-object-container"
+            <div *ngIf="isTitleComponent(component)" class="configuration-object-container" style="margin-top: 10px;"
                  (click)="toggleTitleSettings(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
                 </div>
