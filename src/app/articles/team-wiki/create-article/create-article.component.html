@@ -105,16 +105,14 @@
                             [style.paddingTop.px]="component.topSpacing"
                             [style.paddingBottom.px]="component.bottomSpacing"
                             [style.paddingLeft.px]="component.leftSpacing"
-                            [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                            {{component.contents}}</div>
+                            [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                     </ng-container>
                     <ng-container *ngIf="isTextComponent(component)">
                         <div style="white-space: pre-wrap; margin-top: 15px; margin-bottom: 15px;"
                             [style.paddingTop.px]="component.topSpacing"
                             [style.paddingBottom.px]="component.bottomSpacing"
                             [style.paddingLeft.px]="component.leftSpacing"
-                            [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">
-                            {{component.contents}}</div>
+                            [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}">{{component.contents}}</div>
                     </ng-container>
                     <ng-container *ngIf="isBulletedListComponent(component)">
                         <ul [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
