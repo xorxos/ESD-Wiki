@@ -92,3 +92,15 @@
     text-align: center;
     line-height: .5rem;
 }
+
+.setting-element {
+    min-height: 50px;
+    padding: 10px;
+    line-height: 1.5rem;
+    background-color: white;
+}
+
+.form-group {
+    margin-bottom: 0px !important;
+    padding-top: 10px;
+}

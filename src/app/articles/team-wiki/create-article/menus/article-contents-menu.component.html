@@ -1,11 +1,13 @@
 <div class="configuration-section-1">
     <div class="article-menu">
-        <div [ngClass]="{'article-item-active': showSections, 'article-item': showArticleSettings}" style="margin-right: 5px;" (click)="toggleShowSections()">Sections</div>
-        <div [ngClass]="{'article-item-active': showArticleSettings, 'article-item': showSections}" (click)="toggleShowArticleSettings()">Article Settings</div>
+        <div [ngClass]="{'article-item-active': showSections, 'article-item': showArticleSettings}"
+            style="margin-right: 5px;" (click)="toggleShowSections()">Sections</div>
+        <div [ngClass]="{'article-item-active': showArticleSettings, 'article-item': showSections}"
+            (click)="toggleShowArticleSettings()">Article Settings</div>
     </div>
     <div *ngIf="showSections">
-        <div *ngFor="let component of newArticle.articleContents;let i = index"
-            (mouseenter)="highlightComponent(i)" (mouseleave)="dehighlightComponent(i)">
+        <div *ngFor="let component of newArticle.articleContents;let i = index" (mouseenter)="highlightComponent(i)"
+            (mouseleave)="dehighlightComponent(i)">
             <div *ngIf="isTitleComponent(component)" class="configuration-object-container" style="margin-top: 10px;"
                 (click)="toggleTitleSettings(i)">
                 <div class="configuration-object inline-block" style="line-height: 2rem;">{{component.selector}}
@@ -94,5 +96,50 @@
             <div class="inline-block" style="line-height: 2rem;">Add Section</div>
         </div>
     </div>
-    <div *ngIf="showArticleSettings">I am here</div>
+    <div *ngIf="showArticleSettings" style="border-top: 1px solid #dfe3e8; margin-top: 10px; border-right: 2px solid #dfe3e8;
+    border-left: 2px solid #dfe3e8;">
+        <form class="setting-element" style="padding-top: 10px; padding-bottom: 20px;">
+            <div class="form-group">
+                <label for="mainCategory" style="margin-bottom:5px;padding-left:3px;">Team Category</label>
+                <select class="form-control" id="mainCategory">
+                    <option selected>Choose...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subCategory" style="margin-bottom:5px;padding-left:3px;">Team Sub-Category</label>
+                <select class="form-control" id="subCategory">
+                    <option selected>Choose...</option>
+                </select>
+            </div>
+            <div class="form-group form-check" style="padding-top: 20px;">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Publicly Available</label>
+            </div>
+            <div class="form-group">
+                <label for="publicCategory">Public Category</label>
+                <select disabled class="form-control" id="publicCategory">
+                    <option selected>Choose...</option>
+                    <option>Email</option>
+                    <option>VPN</option>
+                    <option>Internet</option>
+                    <option>Skype</option>
+                    <option>Lockouts</option>
+                    <option>Microsoft Office</option>
+                    <option>Adobe</option>
+                    <option>Antivirus</option>
+                    <option>Mobile Devices</option>
+                    <option>Fiori</option>
+                    <option>Browser Issues</option>
+                    <option>Windows</option>
+                    <option>Mac</option>
+                </select>
+            </div>
+            <div class="form-group">
+                    <label for="publicCategory">Public Sub-Category</label>
+                    <select disabled class="form-control" id="publicCategory">
+                        <option selected>Choose...</option>
+                    </select>
+                </div>
+        </form>
+    </div>
 </div>
