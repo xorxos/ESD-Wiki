@@ -269,6 +269,15 @@ export class CreateArticleComponent implements OnInit {
         this.newArticle.articleContents[this.sectionIndex].contents.push("New Item")
     }
 
+    /** Functions to update and get images */
+    updateFullWidthImageContent(file) {
+        this.newArticle.articleContents[this.sectionIndex].image = file;
+    }
+
+    updateFullWidthImageSrc(src) {
+        this.newArticle.articleContents[this.sectionIndex].src = src;
+    }
+
     /** Function to remove component */
     deleteComponent(index:number) {
         if (index !== -1) {
@@ -371,7 +380,8 @@ export class CreateArticleComponent implements OnInit {
     addFullWidthImageComponent() {
         this.fullWidthImageSection = {
             selector: "Full-Width Image",
-            contents: "This is some rich text",
+            image: null,
+            src: null,
             topSpacing: 0,
             bottomSpacing: 0,
             hovered: false

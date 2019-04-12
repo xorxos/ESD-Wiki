@@ -62,7 +62,8 @@
             </div>
             <div class="col-lg-3" *ngIf="showFullWidthImageSettings">
                 <fullwidthimage-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
-                    (updateFullWidthImageContentMessage)="updateSubheaderContent($event)"
+                    (updateFullWidthImageContentMessage)="updateFullWidthImageContent($event)"
+                    (updateFullWidthImageSrcMessage)="updateFullWidthImageSrc($event)"
                     (deleteComponentMessage)="deleteComponent($event)"
                     (closeFullWidthImageSettingsMenuMessage)="toggleConfigurationSection($event)">
                 </fullwidthimage-settings-menu>
@@ -131,6 +132,9 @@
                             <li [style.paddingBottom.px]="component.itemSpacing"
                                 *ngFor="let item of component.contents">{{item}}</li>
                         </ol>
+                    </ng-container>
+                    <ng-container *ngIf="isFullWidthImageComponent(component)">
+                        <img [src]="component.src" style="max-width:100%; border: 3px solid #ebeced;"/>
                     </ng-container>
                 </ng-container>
             </div>

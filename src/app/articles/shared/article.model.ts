@@ -69,7 +69,8 @@ export interface IImageRightSection {
 
 export interface IFullWidthImageSection {
     selector: string,
-    contents: string,
+    image: any,
+    src: any,
     topSpacing: number,
     bottomSpacing: number,
     hovered: boolean
