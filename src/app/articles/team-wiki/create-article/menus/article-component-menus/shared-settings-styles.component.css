@@ -4,6 +4,11 @@
 
 .form-group {
     margin-bottom: 0px !important;
+    padding-top: 10px;
+}
+
+.display-name {
+    overflow-y: hidden;
 }
 
 .header-container {

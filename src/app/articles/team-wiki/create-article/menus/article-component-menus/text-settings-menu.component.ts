@@ -14,6 +14,7 @@ export class TextSettingsMenuComponent implements OnInit{
     @Output() updateLeftSpacingMessage = new EventEmitter<Input>()
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
+    @Output() updateDisplayNameMessage = new EventEmitter<Input>()
     @Output() closeTextSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
@@ -25,6 +26,10 @@ export class TextSettingsMenuComponent implements OnInit{
 
     closeTextSettingsMenu() {
         this.closeTextSettingsMenuMessage.emit(true)
+    }
+
+    updateDisplayName(event:Input) {
+        this.updateDisplayNameMessage.emit(event)
     }
 
     updateTextContent(event:Input) {

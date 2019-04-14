@@ -15,6 +15,7 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
     @Output() updateFullWidthImageSrcMessage = new EventEmitter<any>()
     @Output() updateFullWidthImageNameMessage = new EventEmitter<string>()
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
+    @Output() updateDisplayNameMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
     @Output() updateFullWidthImageWidthMessage = new EventEmitter<number>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
@@ -77,6 +78,10 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
         this.closeFullWidthImageSettingsMenuMessage.emit(true)
     }
 
+    updateDisplayName(event:Input) {
+        this.updateDisplayNameMessage.emit(event)
+    }
+    
     updateFullWidthImageContent(file: File) {
         this.updateFullWidthImageContentMessage.emit(file)
     }

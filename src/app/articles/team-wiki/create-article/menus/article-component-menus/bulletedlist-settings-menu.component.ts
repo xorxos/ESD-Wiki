@@ -14,6 +14,7 @@ export class BulletedListSettingsMenuComponent implements OnInit{
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
     @Output() updateItemSpacingMessage = new EventEmitter<Input>()
+    @Output() updateDisplayNameMessage = new EventEmitter<Input>()
     @Output() closeBulletedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
     @Output() deleteListItemMessage = new EventEmitter<number>()
@@ -27,6 +28,10 @@ export class BulletedListSettingsMenuComponent implements OnInit{
 
     closeBulletedListSettingsMenu() {
         this.closeBulletedListSettingsMenuMessage.emit(true)
+    }
+
+    updateDisplayName(event:Input) {
+        this.updateDisplayNameMessage.emit(event)
     }
 
     updateBulletedListContent(event:Input, index:number) {

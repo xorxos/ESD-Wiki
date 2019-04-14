@@ -27,11 +27,13 @@
                 <title-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateTitleContentMessage)="updateTitleContent($event)"
                     (updateBottomSpacingMessage)="updateBottomSpacing($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (closeTitleSettingsMenuMessage)="toggleConfigurationSection($event)"></title-settings-menu>
             </div>
             <div class="col-lg-3" *ngIf="showTextSettings">
                 <text-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateTextContentMessage)="updateTextContent($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (updateLeftSpacingMessage)="updateLeftSpacing($event)"
                     (updateTopSpacingMessage)="updateTopSpacing($event)"
                     (updateBottomSpacingMessage)="updateBottomSpacing($event)"
@@ -41,6 +43,7 @@
             <div class="col-lg-3" *ngIf="showSubheaderSettings">
                 <subheader-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateSubheaderContentMessage)="updateSubheaderContent($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (updateLeftSpacingMessage)="updateLeftSpacing($event)"
                     (updateTopSpacingMessage)="updateTopSpacing($event)"
                     (updateBottomSpacingMessage)="updateBottomSpacing($event)"
@@ -50,6 +53,7 @@
             <div class="col-lg-3" *ngIf="showFullWidthImageSettings">
                 <fullwidthimage-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateFullWidthImageContentMessage)="updateFullWidthImageContent($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (updateFullWidthImageSrcMessage)="updateFullWidthImageSrc($event)"
                     (deleteComponentMessage)="deleteComponent($event)"
                     (updateTopSpacingMessage)="updateTopSpacing($event)"
@@ -62,6 +66,7 @@
             <div class="col-lg-3" *ngIf="showBulletedListSettings">
                 <bulletedlist-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateBulletedListContentMessage)="updateBulletedListContent($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (updateLeftSpacingMessage)="updateLeftSpacing($event)"
                     (updateTopSpacingMessage)="updateTopSpacing($event)"
                     (updateBottomSpacingMessage)="updateBottomSpacing($event)"
@@ -74,6 +79,7 @@
             <div class="col-lg-3" *ngIf="showNumberedListSettings">
                 <numberedlist-settings-menu [newArticle]="newArticle" [sectionIndex]="sectionIndex"
                     (updateNumberedListContentMessage)="updateNumberedListContent($event)"
+                    (updateDisplayNameMessage)="updateDisplayName($event)"
                     (updateLeftSpacingMessage)="updateLeftSpacing($event)"
                     (updateTopSpacingMessage)="updateTopSpacing($event)"
                     (updateBottomSpacingMessage)="updateBottomSpacing($event)"
@@ -126,7 +132,7 @@
                         </ng-container>
                         <ng-container *ngIf="isFullWidthImageComponent(component)">
                             <img [src]="component.src || component.placeholder" 
-                                 [ngStyle]="{ 'border-left' : (component.hovered ? '5px solid red' : '5px solid transparent')}"
+                                 [ngStyle]="{ 'border': '2px solid #ebeced', 'border-left' : (component.hovered ? '5px solid red' : '2px solid #ebeced')}"
                                  [style.paddingTop.px]="component.topSpacing"
                                  [style.width]="component.width + '%'"
                                  [style.paddingBottom.px]="component.bottomSpacing"

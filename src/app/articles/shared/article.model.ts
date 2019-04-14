@@ -8,6 +8,7 @@ export interface IArticle {
 
 export interface ITitleSection {
     selector: string,
+    displayName: string,
     contents: string,
     bottomSpacing: number,
     hovered: boolean
@@ -15,6 +16,7 @@ export interface ITitleSection {
 
 export interface ITextSection {
     selector: string,
+    displayName: string,
     contents: string,
     leftSpacing: number,
     topSpacing: number,
@@ -24,6 +26,7 @@ export interface ITextSection {
 
 export interface IBulletedListSection {
     selector: string,
+    displayName: string,
     contents: string[],
     leftSpacing: number,
     topSpacing: number,
@@ -34,6 +37,7 @@ export interface IBulletedListSection {
 
 export interface INumberedListSection {
     selector: string,
+    displayName: string,
     contents: string[],
     leftSpacing: number,
     topSpacing: number,
@@ -44,6 +48,7 @@ export interface INumberedListSection {
 
 export interface ISubheaderSection {
     selector: string,
+    displayName: string,
     contents: string,
     leftSpacing: number,
     topSpacing: number,
@@ -55,6 +60,7 @@ export interface IFullWidthImageSection {
     selector: string,
     image: any,
     name: string,
+    displayName: string,
     src: any,
     width: number,
     placeholder: string,

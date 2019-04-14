@@ -44,6 +44,7 @@ export class CreateArticleComponent implements OnInit {
         this.showArticleContents = true
         this.titleSection = {
             selector: "Title",
+            displayName: "Title",
             contents: "This is a Title",
             bottomSpacing: 0,
             hovered: false
@@ -120,6 +121,11 @@ export class CreateArticleComponent implements OnInit {
         this.showFullWidthImageSettings = false
         this.showBulletedListSettings = false
         this.showNumberedListSettings = false
+    }
+
+    /** Shared component update functions */
+    updateDisplayName(event) {
+        this.newArticle.articleContents[this.sectionIndex].displayName = event.target.value
     }
 
     /** Functions to re-arrange newArticle.articleContents */
@@ -292,6 +298,7 @@ export class CreateArticleComponent implements OnInit {
     addTextComponent() {
         this.textSection = {
             selector: "Text",
+            displayName: "Text",
             contents: "This is some text. Extra spaces and returns are shown exactly as entered.",
             leftSpacing: 2,
             topSpacing: 0,
@@ -304,6 +311,7 @@ export class CreateArticleComponent implements OnInit {
     addSubheaderComponent() {
         this.subheaderSection = {
             selector: "Subheader",
+            displayName: "Subheader",
             contents: "Step 1",
             leftSpacing: 0,
             topSpacing: 0,
@@ -316,6 +324,7 @@ export class CreateArticleComponent implements OnInit {
     addBulletedListComponent() {
         this.bulletedListSection = {
             selector: "Bulleted List",
+            displayName: "Bulleted List",
             contents: ["Item 1", "Item 2", "Item 3"],
             leftSpacing: 40,
             topSpacing: 0,
@@ -329,6 +338,7 @@ export class CreateArticleComponent implements OnInit {
     addNumberedListComponent() {
         this.numberedListSection = {
             selector: "Numbered List",
+            displayName: "Numbered List",
             contents: ["Item 1", "Item 2", "Item 3"],
             leftSpacing: 40,
             topSpacing: 0,
@@ -342,6 +352,7 @@ export class CreateArticleComponent implements OnInit {
     addFullWidthImageComponent() {
         this.fullWidthImageSection = {
             selector: "Full-Width Image",
+            displayName: "Full-Width Image",
             image: null,
             src: null,
             name: null,

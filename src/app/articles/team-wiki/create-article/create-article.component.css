@@ -18,6 +18,7 @@
     padding: 0px;
     height: calc(100vh - 50px);
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .col-lg-9 {

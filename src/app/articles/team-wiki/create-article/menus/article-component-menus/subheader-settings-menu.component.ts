@@ -14,6 +14,7 @@ export class SubheaderSettingsMenuComponent implements OnInit{
     @Output() updateLeftSpacingMessage = new EventEmitter<Input>()
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
+    @Output() updateDisplayNameMessage = new EventEmitter<Input>()
     @Output() closeSubheaderSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
@@ -25,6 +26,10 @@ export class SubheaderSettingsMenuComponent implements OnInit{
 
     closeSubheaderSettingsMenu() {
         this.closeSubheaderSettingsMenuMessage.emit(true)
+    }
+
+    updateDisplayName(event:Input) {
+        this.updateDisplayNameMessage.emit(event)
     }
 
     updateSubheaderContent(event:Input) {

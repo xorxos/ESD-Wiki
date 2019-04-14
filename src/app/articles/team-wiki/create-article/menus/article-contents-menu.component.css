@@ -59,7 +59,7 @@
 }
 
 .configuration-object-container {
-    min-height: 60px;
+    height: 60px;
     background-color: white;
     border-top: 2px solid #dfe3e8;
     border-right: 2px solid #dfe3e8;
@@ -67,7 +67,10 @@
 }
 
 .configuration-object {
-    padding: 12px 20px;
+    padding: 5px 20px;
+    max-height: 56px;
+    line-height: 3rem;
+    overflow: hidden;
     cursor: pointer;
     width: calc(100% - 50px);
 }

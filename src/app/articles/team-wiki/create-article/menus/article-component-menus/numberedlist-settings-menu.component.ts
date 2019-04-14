@@ -14,6 +14,7 @@ export class NumberedListSettingsMenuComponent implements OnInit {
     @Output() updateTopSpacingMessage = new EventEmitter<Input>()
     @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
     @Output() updateItemSpacingMessage = new EventEmitter<Input>()
+    @Output() updateDisplayNameMessage = new EventEmitter<Input>()
     @Output() closeNumberedListSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
     @Output() deleteListItemMessage = new EventEmitter<number>()
@@ -27,6 +28,10 @@ export class NumberedListSettingsMenuComponent implements OnInit {
 
     closeNumberedListSettingsMenu() {
         this.closeNumberedListSettingsMenuMessage.emit(true)
+    }
+
+    updateDisplayName(event:Input) {
+        this.updateDisplayNameMessage.emit(event)
     }
 
     updateNumberedListContent(event: Input, index: number) {
