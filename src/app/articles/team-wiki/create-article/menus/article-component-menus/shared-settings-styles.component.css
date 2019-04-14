@@ -7,9 +7,10 @@
 }
 
 .header-container {
-    min-height: 60px;
+    max-height: 60px;
     background-color:white;
     text-align: center;
+    overflow: hidden;
     padding-left: 10px;
     max-width: 100%;
     border-bottom: 1px solid #dfe3e8;
@@ -26,7 +27,8 @@
 .title-settings-header {
     padding-top: 14px;
     margin: 2px;
-    width: 80%;
+    width: calc(100% - 41px);
+    overflow: hidden;
     font-weight: 600 !important;
     line-height: 2rem;
 }
