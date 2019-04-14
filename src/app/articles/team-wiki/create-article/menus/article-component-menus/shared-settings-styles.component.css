@@ -10,6 +10,9 @@
     min-height: 60px;
     background-color:white;
     text-align: center;
+    padding-left: 10px;
+    max-width: 100%;
+    border-bottom: 1px solid #dfe3e8;
 }
 
 .box-container {
@@ -22,8 +25,8 @@
 
 .title-settings-header {
     padding-top: 14px;
-    padding-left: 30px;
     margin: 2px;
+    width: 80%;
     font-weight: 600 !important;
     line-height: 2rem;
 }
@@ -36,7 +39,7 @@
 }
 
 .x-icon {
-    float: right;
+    display: inline-block;
     line-height: 2rem;
     padding: 15px 20px 14px 0px;
     cursor: pointer;
@@ -44,6 +47,10 @@
 
 .column-spacer {
     flex-grow:1;
+}
+
+.custom-file-label {
+    overflow: hidden;
 }
 
 .fa-trash {
@@ -58,4 +65,8 @@
     padding-left: 11px;
     margin-bottom: 10px;
     border-radius: 0px 0.25rem 0.25rem 0px;
+}
+
+.settings-container {
+    margin-top: 15px;
 }

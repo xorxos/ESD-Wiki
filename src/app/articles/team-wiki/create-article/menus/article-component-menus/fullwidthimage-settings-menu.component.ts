@@ -13,6 +13,10 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
     @Output() closeFullWidthImageSettingsMenuMessage = new EventEmitter<boolean>()
     @Output() updateFullWidthImageContentMessage = new EventEmitter<File>()
     @Output() updateFullWidthImageSrcMessage = new EventEmitter<any>()
+    @Output() updateFullWidthImageNameMessage = new EventEmitter<string>()
+    @Output() updateTopSpacingMessage = new EventEmitter<Input>()
+    @Output() updateBottomSpacingMessage = new EventEmitter<Input>()
+    @Output() updateFullWidthImageWidthMessage = new EventEmitter<number>()
     @Output() deleteComponentMessage = new EventEmitter<number>()
 
     fullWidthImage: IFullWidthImageSection
@@ -23,7 +27,7 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
     imagePreview: ElementRef
 
     formImport: FormGroup
-    imgSrc: any = "..\\assets\\images\\placeholder-image.jpg"
+    imgSrc: any
 
     constructor() {
         this.formImport = new FormGroup({
@@ -37,6 +41,7 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
 
     ngOnInit() {
         this.getFullWidthImage()
+        this.imgSrc = this.fullWidthImage.placeholder
     }
 
     onFileChange(files) {
@@ -60,7 +65,12 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
         }
 
         this.labelImport.nativeElement.innerText = files.item(0).name
+        this.updateFullWidthImageName(files.item(0).name)
         this.updateFullWidthImageContent(this.imagePath)
+    }
+
+    onRangeChange(event) {
+        this.updateFullWidthImageWidthMessage.emit(event.target.value)
     }
 
     closeFullWidthImageSettingsMenu() {
@@ -73,6 +83,18 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
 
     updateFullWidthImageSrc(src: any) {
         this.updateFullWidthImageSrcMessage.emit(src)
+    }
+
+    updateFullWidthImageName(name: string) {
+        this.updateFullWidthImageNameMessage.emit(name)
+    }
+
+    updateTopSpacing(event:Input) {
+        this.updateTopSpacingMessage.emit(event)
+    }
+
+    updateBottomSpacing(event:Input) {
+        this.updateBottomSpacingMessage.emit(event)
     }
 
     getFullWidthImage() {
@@ -91,6 +113,8 @@ export class FullWidthImageSettingsMenuComponent implements OnInit {
             reader.onload = (_event) => {
                 this.imgSrc = reader.result;
             }
+
+            this.labelImport.nativeElement.innerText = this.fullWidthImage.name
         }
     }
 

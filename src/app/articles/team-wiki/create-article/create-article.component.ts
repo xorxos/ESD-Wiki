@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { IArticle, 
          ITitleSection, 
          ITextSection, 
-         ISubheaderSection, 
-         IImageLeftSection, 
-         IImageRightSection, 
+         ISubheaderSection,
          IFullWidthImageSection, 
          IBulletedListSection, 
          INumberedListSection } from '../../shared/article.model';
@@ -22,8 +20,6 @@ export class CreateArticleComponent implements OnInit {
     showTitleSettings: boolean
     showTextSettings: boolean
     showSubheaderSettings: boolean
-    showImageLeftSettings: boolean
-    showImageRightSettings: boolean
     showFullWidthImageSettings: boolean
     showBulletedListSettings: boolean
     showNumberedListSettings: boolean
@@ -38,8 +34,6 @@ export class CreateArticleComponent implements OnInit {
     titleSection: ITitleSection
     textSection: ITextSection
     subheaderSection: ISubheaderSection
-    imageLeftSection: IImageLeftSection
-    imageRightSection: IImageRightSection
     fullWidthImageSection: IFullWidthImageSection
     bulletedListSection: IBulletedListSection
     numberedListSection: INumberedListSection
@@ -97,18 +91,6 @@ export class CreateArticleComponent implements OnInit {
         this.showSubheaderSettings = true
     }
 
-    toggleImageLeftSettings(event) {
-        this.setMenuBooleansFalse()
-        this.sectionIndex = event
-        this.showImageLeftSettings = true
-    }
-
-    toggleImageRightSettings(event) {
-        this.setMenuBooleansFalse()
-        this.sectionIndex = event
-        this.showImageRightSettings = true
-    }
-
     toggleFullWidthImageSettings(event) {
         this.setMenuBooleansFalse()
         this.sectionIndex = event
@@ -135,8 +117,6 @@ export class CreateArticleComponent implements OnInit {
         this.showTitleSettings = false
         this.showTextSettings = false
         this.showSubheaderSettings = false
-        this.showImageLeftSettings = false
-        this.showImageRightSettings = false
         this.showFullWidthImageSettings = false
         this.showBulletedListSettings = false
         this.showNumberedListSettings = false
@@ -271,11 +251,19 @@ export class CreateArticleComponent implements OnInit {
 
     /** Functions to update and get images */
     updateFullWidthImageContent(file) {
-        this.newArticle.articleContents[this.sectionIndex].image = file;
+        this.newArticle.articleContents[this.sectionIndex].image = file
     }
 
     updateFullWidthImageSrc(src) {
-        this.newArticle.articleContents[this.sectionIndex].src = src;
+        this.newArticle.articleContents[this.sectionIndex].src = src
+    }
+
+    updateFullWidthImageName(name: string) {
+        this.newArticle.articleContents[this.sectionIndex].name = name
+    }
+
+    rangeChange(event:number) {
+        this.newArticle.articleContents[this.sectionIndex].width = event
     }
 
     /** Function to remove component */
@@ -297,10 +285,6 @@ export class CreateArticleComponent implements OnInit {
             this.addNumberedListComponent()
         }else if (event === "FullWidth Image") {
             this.addFullWidthImageComponent()
-        }else if (event === "Image Left") {
-            this.addImageLeftComponent()
-        }else if (event === "Image Right") {
-            this.addImageRightComponent()
         }
         this.toggleConfigurationSection(true)
     }
@@ -355,33 +339,14 @@ export class CreateArticleComponent implements OnInit {
         this.newArticle.articleContents.push(this.numberedListSection)
     }
 
-    addImageLeftComponent() {
-        this.imageLeftSection = {
-            selector: "Image-left With Text",
-            contents: "This is some rich text",
-            topSpacing: 0,
-            bottomSpacing: 0,
-            hovered: false
-        }
-        this.newArticle.articleContents.push(this.imageLeftSection)
-    }
-
-    addImageRightComponent() {
-        this.imageRightSection = {
-            selector: "Image-right With Text",
-            contents: "This is some rich text",
-            topSpacing: 0,
-            bottomSpacing: 0,
-            hovered: false
-        }
-        this.newArticle.articleContents.push(this.imageRightSection)
-    }
-
     addFullWidthImageComponent() {
         this.fullWidthImageSection = {
             selector: "Full-Width Image",
             image: null,
             src: null,
+            name: null,
+            placeholder: "..\\assets\\images\\placeholder-image.jpg",
+            width: 100,
             topSpacing: 0,
             bottomSpacing: 0,
             hovered: false
@@ -416,18 +381,6 @@ export class CreateArticleComponent implements OnInit {
 
     isNumberedListComponent(component): boolean {
         if(component.selector === "Numbered List") {
-            return true
-        } else return false
-    }
-
-    isImageLeftComponent(component): boolean {
-        if(component.selector === "Image-left With Text") {
-            return true
-        } else return false
-    }
-
-    isImageRightComponent(component): boolean {
-        if(component.selector === "Image-right With Text") {
             return true
         } else return false
     }

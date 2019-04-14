@@ -51,26 +51,13 @@ export interface ISubheaderSection {
     hovered: boolean
 }
 
-export interface IImageLeftSection {
-    selector: string,
-    contents: string,
-    topSpacing: number,
-    bottomSpacing: number,
-    hovered: boolean
-}
-
-export interface IImageRightSection {
-    selector: string,
-    contents: string,
-    topSpacing: number,
-    bottomSpacing: number,
-    hovered: boolean
-}
-
 export interface IFullWidthImageSection {
     selector: string,
     image: any,
+    name: string,
     src: any,
+    width: number,
+    placeholder: string,
     topSpacing: number,
     bottomSpacing: number,
     hovered: boolean

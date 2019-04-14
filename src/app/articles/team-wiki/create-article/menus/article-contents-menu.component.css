@@ -9,8 +9,11 @@
 .article-menu {
     padding-left: 5px;
     padding-right: 5px;
+    background-color:#ebeced;
     text-align: center;
     border-bottom: 1px solid #d0d2d3;
+    position: sticky;
+    top: 0;
 }
 
 .article-item {
@@ -52,6 +55,7 @@
 .configuration-section-1 {
     width: 100%;
     position: absolute;
+    height: 100%;
 }
 
 .configuration-object-container {
@@ -65,7 +69,7 @@
 .configuration-object {
     padding: 12px 20px;
     cursor: pointer;
-    min-width: 80%;
+    width: calc(100% - 50px);
 }
 
 .configuration-order {
@@ -103,4 +107,30 @@
 .form-group {
     margin-bottom: 0px !important;
     padding-top: 10px;
+}
+
+.column-spacer {
+    flex-grow:1;
+}
+
+.section-button-container {
+    min-height: 50px;
+    padding: 10px;
+    line-height: 1.5rem;
+    background-color: white;
+    border-top: 1px solid #dfe3e8; 
+    min-height: 60px; 
+    border-left: 2px solid #ebeced; 
+    border-right: 2px solid #ebeced;
+    position: sticky;
+    bottom: 0;
+}
+
+.save-button {
+    width: calc(100% - 78px);
+    margin-right: 5px;
+}
+
+.cancel-button {
+    width: 73px;
 }

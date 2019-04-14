@@ -5,12 +5,12 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div style="border-top: 1px solid #dfe3e8;">
+    <div class="settings-container">
         <form class="setting-element" style="padding: 10px;">
             <div class="form-group">
                 <label style="margin-bottom:5px;padding-left:3px;">Image</label>
                 <div style="border: 2px solid #ebeced;">
-                    <img #imagePreview [src]="imgSrc" style="max-width: 272px;" />
+                    <img #imagePreview [src]="imgSrc" style="max-width: 100%" />
                 </div>
                 <div class="input-group mb-3" style="margin-top:10px;">
                     <div class="custom-file">
@@ -20,6 +20,21 @@
                             Choose file</label>
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="formControlRange">Width: {{fullWidthImage.width}}%</label>
+                <input type="range" min="1" max="100" [value]="fullWidthImage.width" class="form-control-range"
+                    id="formControlRange" (input)="onRangeChange($event)">
+            </div>
+            <div class="form-group" style="margin-top:10px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Top Spacing (default: 0 pixels)</label>
+                <input class="form-control" type="number" (input)="updateTopSpacing($event)"
+                    value="{{fullWidthImage.topSpacing}}" />
+            </div>
+            <div class="form-group" style="margin-top:10px;">
+                <label style="margin-bottom:5px;padding-left:3px;">Bottom Spacing (default: 0 pixels)</label>
+                <input class="form-control" type="number" (input)="updateBottomSpacing($event)"
+                    value="{{fullWidthImage.bottomSpacing}}" />
             </div>
         </form>
     </div>
